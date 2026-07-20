@@ -62,7 +62,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.63330,
         category: "Illegal Midnight Effluent Discharge",
         description: "Dark, chemical-smelling runoff observed flowing from a pipeline behind the main industrial estate road towards Anekal border at 1:30 AM.",
-        photo: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_1/400/250",
         dateTime: "2026-07-16T01:30",
         status: "Investigating",
         remarks: "KSPCB Dispatcher: Patrol team assigned. Mobile laboratory deployed to retrieve sample vials.",
@@ -82,7 +82,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.69890,
         category: "Borewell Water Contamination",
         description: "Borewell water drawn for agricultural fields has turned yellowish with a strong chlorine-like smell. Crops show signs of distress.",
-        photo: "https://images.unsplash.com/photo-1538300342682-be57b6d5f482?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_2/400/250",
         dateTime: "2026-07-12T08:00",
         status: "Resolved",
         remarks: "KSPCB Inspector: Located upstream pipe leak at metal coating factory. Closed the leakage and imposed 2,50,000 INR environmental fine. Water quality flushed and recovered.",
@@ -101,7 +101,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.63500,
         category: "Garbage Dumping in Water Body",
         description: "Large amounts of solid waste and plastic bags are being dumped into the secondary stormwater drain connected to the main lake.",
-        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_3/400/250",
         dateTime: "2026-07-18T14:20",
         status: "Investigating",
         remarks: "KSPCB Dispatcher: Case forwarded to solid waste management division for immediate clearing.",
@@ -120,7 +120,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.63000,
         category: "Chemical Foam Overflow",
         description: "Toxic foam overflowing from the industrial drains onto the main road near Phase 2 blocks. Very strong chemical smell causing breathing issues.",
-        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_4/400/250",
         dateTime: "2026-07-20T06:15",
         status: "Submitted",
         remarks: "Pending initial review by authorities.",
@@ -139,7 +139,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.70100,
         category: "Drinking Water Discoloration",
         description: "Municipal tap water has been coming out with a brownish tint for the last 48 hours. Many households in the vicinity are reporting the same issue.",
-        photo: "https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_5/400/250",
         dateTime: "2026-07-19T08:30",
         status: "Investigating",
         remarks: "KSPCB Water Quality Wing alerted. Water supply board temporarily halting distribution in the zone.",
@@ -158,7 +158,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.69500,
         category: "Mass Fish Death",
         description: "Hundreds of dead fish have washed up on the southern banks of the lake this morning. Suspected oxygen depletion from sudden chemical influx.",
-        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_6/400/250",
         dateTime: "2026-07-20T06:45",
         status: "Submitted",
         remarks: "High priority flag raised due to ecological impact.",
@@ -178,7 +178,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.62500,
         category: "Suspicious Tanker Discharge",
         description: "An unmarked tanker was seen dumping liquid waste into the open storm drain near the tech park boundary.",
-        photo: "https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_7/400/250",
         dateTime: "2026-07-19T23:45",
         status: "Investigating",
         remarks: "CCTV footage requested from nearby facilities.",
@@ -192,7 +192,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.6400,
         category: "Solid Waste Dumping",
         description: "Construction debris dumped right on the lakebed.",
-        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_8/400/250",
         dateTime: "2026-07-20T10:15",
         status: "Submitted",
         remarks: "Pending review.",
@@ -206,7 +206,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.7050,
         category: "Air and Water Pollution",
         description: "Black smoke from factory mixing with highly acidic runoff into the drains.",
-        photo: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_9/400/250",
         dateTime: "2026-07-20T11:00",
         status: "Investigating",
         remarks: "KSPCB team dispatched.",
@@ -220,7 +220,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.6900,
         category: "Sewage Water Logging",
         description: "Drain overflow causing foul smelling water logging in front of the market.",
-        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_10/400/250",
         dateTime: "2026-07-20T12:30",
         status: "Submitted",
         remarks: "Forwarded to municipality.",
@@ -234,7 +234,7 @@ const DEFAULT_COMPLAINTS = [
         lng: 77.6250,
         category: "Pungent Chemical Odor",
         description: "Unbearable smell resembling sulfur coming from the drainage canals.",
-        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400",
+        photo: "https://picsum.photos/seed/jd_dash_11/400/250",
         dateTime: "2026-07-20T13:45",
         status: "Investigating",
         remarks: "Air quality monitors triggered.",
@@ -243,61 +243,61 @@ const DEFAULT_COMPLAINTS = [
     {
         id: "JD-93005", user: "Jigani Auto Union", location: "Jigani Main Road Circle", lat: 12.7880, lng: 77.6350,
         category: "Toxic Dust Emission", description: "Thick layer of unidentified white powder coating vehicles overnight from nearby cement mixing plant.",
-        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T07:15",
+        photo: "https://picsum.photos/seed/jd_dash_12/400/250", dateTime: "2026-07-21T07:15",
         status: "Submitted", remarks: "Pending air quality verification.", timeline: { submitted: "2026-07-21T07:20", received: null, investigating: null, resolved: null }
     },
     {
         id: "JD-93006", user: "Lake Conservation NGO", location: "Anekal Lake East Bank", lat: 12.7110, lng: 77.7020,
         category: "Wetland Encroachment", description: "Trucks seen dumping soil directly into the lake's eastern wetland buffer zone to reclaim land.",
-        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T09:40",
+        photo: "https://picsum.photos/seed/jd_dash_13/400/250", dateTime: "2026-07-21T09:40",
         status: "Investigating", remarks: "Survey department dispatched for inspection.", timeline: { submitted: "2026-07-21T09:45", received: "2026-07-21T10:00", investigating: "2026-07-21T10:30", resolved: null }
     },
     {
         id: "JD-93007", user: "Suresh", location: "Anekal APMC Yard", lat: 12.7180, lng: 77.7000,
         category: "Rotting Organic Waste", description: "Hundreds of kilos of unsold vegetable waste rotting in the open drain.",
-        photo: "https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T11:10",
+        photo: "https://picsum.photos/seed/jd_dash_14/400/250", dateTime: "2026-07-21T11:10",
         status: "Investigating", remarks: "Municipality cleanup crew assigned.", timeline: { submitted: "2026-07-21T11:15", received: "2026-07-21T11:30", investigating: "2026-07-21T12:00", resolved: null }
     },
     {
         id: "JD-93008", user: "Jigani Layout Residents", location: "Jigani Phase 2 Residential Layout", lat: 12.7780, lng: 77.6250,
         category: "Groundwater Contamination", description: "Three local borewells have started yielding muddy, oily water since last week.",
-        photo: "https://images.unsplash.com/photo-1538300342682-be57b6d5f482?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T13:20",
+        photo: "https://picsum.photos/seed/jd_dash_15/400/250", dateTime: "2026-07-21T13:20",
         status: "Submitted", remarks: "KSPCB testing team scheduled for tomorrow.", timeline: { submitted: "2026-07-21T13:25", received: null, investigating: null, resolved: null }
     },
     {
         id: "JD-93009", user: "Green Anekal", location: "Anekal Town Outskirts", lat: 12.7050, lng: 77.7100,
         category: "Illegal Tree Felling", description: "Multiple mature banyan trees chopped down near the drainage canal without permits.",
-        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T14:45",
+        photo: "https://picsum.photos/seed/jd_dash_16/400/250", dateTime: "2026-07-21T14:45",
         status: "Investigating", remarks: "Forest department alerted.", timeline: { submitted: "2026-07-21T14:50", received: "2026-07-21T15:00", investigating: "2026-07-21T15:30", resolved: null }
     },
     {
         id: "JD-93010", user: "Jigani Industrial Workers", location: "Jigani Industrial Area Phase 1", lat: 12.7820, lng: 77.6380,
         category: "Hazardous Chemical Spill", description: "Large blue drum tipped over leaking unidentified solvent onto the pedestrian walkway.",
-        photo: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T16:10",
+        photo: "https://picsum.photos/seed/jd_dash_17/400/250", dateTime: "2026-07-21T16:10",
         status: "Investigating", remarks: "Hazmat response team en route.", timeline: { submitted: "2026-07-21T16:15", received: "2026-07-21T16:20", investigating: "2026-07-21T16:30", resolved: null }
     },
     {
         id: "JD-93011", user: "Meena", location: "Anekal Post Office Road", lat: 12.7130, lng: 77.6970,
         category: "Plastic Burning", description: "Local scrap yard burning large quantities of PVC pipes and plastic waste.",
-        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T17:30",
+        photo: "https://picsum.photos/seed/jd_dash_18/400/250", dateTime: "2026-07-21T17:30",
         status: "Submitted", remarks: "Police patrolling unit notified.", timeline: { submitted: "2026-07-21T17:35", received: null, investigating: null, resolved: null }
     },
     {
         id: "JD-93012", user: "Jigani Electronics Hub", location: "Jigani Electronic Park", lat: 12.7850, lng: 77.6300,
         category: "E-Waste Dumping", description: "Hundreds of discarded circuit boards dumped in the empty plot next to the park.",
-        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T18:45",
+        photo: "https://picsum.photos/seed/jd_dash_19/400/250", dateTime: "2026-07-21T18:45",
         status: "Investigating", remarks: "E-waste management board notified.", timeline: { submitted: "2026-07-21T18:50", received: "2026-07-21T19:00", investigating: "2026-07-21T19:15", resolved: null }
     },
     {
         id: "JD-93013", user: "Kiran", location: "Anekal Government Hospital", lat: 12.7100, lng: 77.6950,
         category: "Biomedical Waste Overflow", description: "Yellow and red biohazard bags piling up outside the designated disposal area.",
-        photo: "https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T19:20",
+        photo: "https://picsum.photos/seed/jd_dash_20/400/250", dateTime: "2026-07-21T19:20",
         status: "Submitted", remarks: "Health officer informed.", timeline: { submitted: "2026-07-21T19:25", received: null, investigating: null, resolved: null }
     },
     {
         id: "JD-93014", user: "Jigani Food Processing Unit", location: "Jigani Phase 3", lat: 12.7950, lng: 77.6450,
         category: "Organic Sludge Discharge", description: "Food processing factory discharging untreated thick sludge directly into the stormwater drain.",
-        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T20:10",
+        photo: "https://picsum.photos/seed/jd_dash_21/400/250", dateTime: "2026-07-21T20:10",
         status: "Investigating", remarks: "KSPCB inspection scheduled.", timeline: { submitted: "2026-07-21T20:15", received: "2026-07-21T20:30", investigating: "2026-07-21T21:00", resolved: null }
     }
 ];
@@ -364,11 +364,12 @@ const DEFAULT_REPORTS = [
 
 // Load databases or write defaults
 function initDatabase() {
-    if (!localStorage.getItem("jd_locations_v6")) {
-        localStorage.setItem("jd_locations_v6", JSON.stringify(DEFAULT_LOCATIONS));
+    if (!localStorage.getItem("jd_locations_v7")) {
+        localStorage.setItem("jd_locations_v7", JSON.stringify(DEFAULT_LOCATIONS));
     }
-    // Force overwrite complaints to always show the latest demo pins
-    localStorage.setItem("jd_complaints_v6", JSON.stringify(DEFAULT_COMPLAINTS));
+    if (!localStorage.getItem("jd_complaints_v7")) {
+        localStorage.setItem("jd_complaints_v7", JSON.stringify(DEFAULT_COMPLAINTS));
+    }
     if (!localStorage.getItem("jd_industries")) {
         localStorage.setItem("jd_industries", JSON.stringify(DEFAULT_INDUSTRIES));
     }
@@ -377,20 +378,20 @@ function initDatabase() {
     }
 }
 
-// Get Database items
-const getLocations = () => JSON.parse(localStorage.getItem("jd_locations_v6"));
-const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v6"));
+// Data Access Helpers
+const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v7"));
+const getLocations = () => JSON.parse(localStorage.getItem("jd_locations_v7"));
 const getIndustries = () => JSON.parse(localStorage.getItem("jd_industries"));
 const getReports = () => JSON.parse(localStorage.getItem("jd_reports"));
 
 // Update database items
 const saveLocations = (data) => {
-    localStorage.setItem("jd_locations_v6", JSON.stringify(data));
-    pushToSupabase('locations', data);
+    localStorage.setItem("jd_locations_v7", JSON.stringify(data));
+    if (typeof pushToSupabase === 'function') pushToSupabase('locations', data);
 };
 const saveComplaints = (data) => {
-    localStorage.setItem("jd_complaints_v6", JSON.stringify(data));
-    pushToSupabase('complaints', data);
+    localStorage.setItem("jd_complaints_v7", JSON.stringify(data));
+    if (typeof pushToSupabase === 'function') pushToSupabase('complaints', data);
 };
 const saveIndustries = (data) => {
     localStorage.setItem("jd_industries", JSON.stringify(data));
@@ -1522,4 +1523,5 @@ function markAllReportsRead() {
     showNewReportsPanel(); // re-render panel
     showToast('All Read', 'All citizen reports marked as read.', 'info');
 }
+
 
