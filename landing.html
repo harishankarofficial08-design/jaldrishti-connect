@@ -56,7 +56,26 @@
     <div class="hero-bubbles" id="hero-bubbles"></div>
     <div class="hero-content">
 
-        <img src="assets/logo.png" alt="JalDrishti Connect Logo" class="hero-logo animate-slide-up" style="animation-delay:0s">
+        <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" class="hero-logo animate-slide-up" style="animation-delay:0s">
+            <defs>
+                <clipPath id="dropClip">
+                    <path d="M100,10 C100,10 180,120 180,170 C180,215 145,250 100,250 C55,250 20,215 20,170 C20,120 100,10 100,10 Z"/>
+                </clipPath>
+            </defs>
+            <path d="M100,10 C100,10 180,120 180,170 C180,215 145,250 100,250 C55,250 20,215 20,170 C20,120 100,10 100,10 Z" fill="#0084ff"/>
+            <g transform="translate(100, 135)">
+                <path d="M-55,0 Q0,-40 55,0 Q0,40 -55,0 Z" fill="#ffffff"/>
+                <circle cx="0" cy="0" r="18" fill="#0084ff"/>
+                <circle cx="0" cy="0" r="11" fill="#00186b"/>
+                <circle cx="4" cy="-4" r="3" fill="#ffffff"/>
+                <circle cx="-2" cy="4" r="1.5" fill="#ffffff"/>
+            </g>
+            <g clip-path="url(#dropClip)">
+                <path d="M-10,165 Q50,150 100,180 T210,165 L210,250 L-10,250 Z" fill="#00186b" stroke="#ffffff" stroke-width="4"/>
+                <path d="M-10,200 Q40,190 95,230 L95,260 L-10,260 Z" fill="#00c0a3" stroke="#ffffff" stroke-width="4"/>
+                <path d="M90,230 Q150,190 210,205 L210,260 L90,260 Z" fill="#0066ff" stroke="#ffffff" stroke-width="4"/>
+            </g>
+        </svg>
         <h1 class="hero-title animate-slide-up" style="animation-delay:0.1s" data-i18n="hero-title">
             Jal<span class="gradient-text">Drishti</span> Connect
         </h1>
