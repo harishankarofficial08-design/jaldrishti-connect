@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function initDB() {
-    if (!localStorage.getItem('jd_locations_v6'))  localStorage.setItem('jd_locations_v6',  JSON.stringify(SEED.locations));
-    if (!localStorage.getItem('jd_complaints_v6')) localStorage.setItem('jd_complaints_v6', JSON.stringify(SEED.complaints));
+    if (!localStorage.getItem('jd_locations_v7'))  localStorage.setItem('jd_locations_v7',  JSON.stringify(SEED.locations));
+    if (!localStorage.getItem('jd_complaints_v7')) localStorage.setItem('jd_complaints_v7', JSON.stringify(SEED.complaints));
     if (!localStorage.getItem('jd_industries')) localStorage.setItem('jd_industries', JSON.stringify(SEED.industries));
     if (!localStorage.getItem('jd_reports'))    localStorage.setItem('jd_reports',    JSON.stringify(SEED.reports));
 }
