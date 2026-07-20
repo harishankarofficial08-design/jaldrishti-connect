@@ -224,11 +224,11 @@ const DEFAULT_REPORTS = [
 
 // Load databases or write defaults
 function initDatabase() {
-    if (!localStorage.getItem("jd_locations_v4")) {
-        localStorage.setItem("jd_locations_v4", JSON.stringify(DEFAULT_LOCATIONS));
+    if (!localStorage.getItem("jd_locations_v5")) {
+        localStorage.setItem("jd_locations_v5", JSON.stringify(DEFAULT_LOCATIONS));
     }
     // Force overwrite complaints to always show the latest demo pins
-    localStorage.setItem("jd_complaints_v4", JSON.stringify(DEFAULT_COMPLAINTS));
+    localStorage.setItem("jd_complaints_v5", JSON.stringify(DEFAULT_COMPLAINTS));
     if (!localStorage.getItem("jd_industries")) {
         localStorage.setItem("jd_industries", JSON.stringify(DEFAULT_INDUSTRIES));
     }
@@ -238,18 +238,18 @@ function initDatabase() {
 }
 
 // Get Database items
-const getLocations = () => JSON.parse(localStorage.getItem("jd_locations_v4"));
-const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v4"));
+const getLocations = () => JSON.parse(localStorage.getItem("jd_locations_v5"));
+const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v5"));
 const getIndustries = () => JSON.parse(localStorage.getItem("jd_industries"));
 const getReports = () => JSON.parse(localStorage.getItem("jd_reports"));
 
 // Update database items
 const saveLocations = (data) => {
-    localStorage.setItem("jd_locations", JSON.stringify(data));
+    localStorage.setItem("jd_locations_v5", JSON.stringify(data));
     pushToSupabase('locations', data);
 };
 const saveComplaints = (data) => {
-    localStorage.setItem("jd_complaints", JSON.stringify(data));
+    localStorage.setItem("jd_complaints_v5", JSON.stringify(data));
     pushToSupabase('complaints', data);
 };
 const saveIndustries = (data) => {
