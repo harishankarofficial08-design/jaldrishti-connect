@@ -21,11 +21,12 @@ app.post('/webhook/complaint-received', async (req, res) => {
 
     try {
         // 1. Send Email to Admin (You)
+        const voiceText = data.voiceScript ? `\n\n--- Voice Recording Script ---\n${data.voiceScript}\n------------------------------` : '';
         await transporter.sendMail({
             from: 'JalDrishti Alerts <harishankarofficial08@gmail.com>',
             to: 'harishankarofficial08@gmail.com',
             subject: `URGENT: New Pollution Report - ${data.category}`,
-            text: `A new pollution report has been submitted.\n\nLocation: ${data.location}\nType: ${data.category}\nDescription: ${data.description}\nReporter: ${data.user}\n\nSystem Log ID: ${data.id}`
+            text: `A new pollution report has been submitted.\n\nLocation: ${data.location}\nType: ${data.category}\nDescription: ${data.description}${voiceText}\n\nReporter: ${data.user}\n\nSystem Log ID: ${data.id}`
         });
         console.log('✅ Admin email sent.');
 

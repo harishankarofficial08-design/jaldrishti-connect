@@ -545,6 +545,7 @@ function submitCitizenComplaint(e) {
         lng,
         category:    pollutionType,
         description,
+        voiceScript: window.currentVoiceScript || '',
         photo,
         dateTime:    nowISO,
         status:      'Submitted',
@@ -597,7 +598,91 @@ function submitCitizenComplaint(e) {
         }).catch(err => console.log('Email Server Webhook error:', err));
 
         showToast('Complaint Submitted!', `ID: ${id} — Sent to KSPCB.`, 'success');
+        window.currentVoiceScript = ''; // Reset voice script
     }, 1800);
+}
+
+/* ========================================================
+   VOICE RECORDING (WEB SPEECH API)
+   ======================================================== */
+let recognition = null;
+let isRecording = false;
+window.currentVoiceScript = ''; // Store the full transcript
+
+function toggleVoiceRecording() {
+    const btnText = document.getElementById('voice-record-text');
+    const status = document.getElementById('voice-status');
+    const descField = document.getElementById('citizen-description');
+    const icon = document.querySelector('#btn-voice-record i');
+
+    if (isRecording) {
+        if (recognition) recognition.stop();
+        isRecording = false;
+        btnText.textContent = 'Voice Record (Optional)';
+        icon.setAttribute('data-lucide', 'mic');
+        status.classList.add('hidden');
+        lucide.createIcons();
+        return;
+    }
+
+    // Initialize Web Speech API
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        showToast('Not Supported', 'Voice recording is not supported in this browser. Please type your description.', 'error');
+        return;
+    }
+
+    recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = localStorage.getItem('jd_lang') === 'kn' ? 'kn-IN' : 'en-IN';
+
+    recognition.onstart = () => {
+        isRecording = true;
+        btnText.textContent = 'Stop Recording';
+        icon.setAttribute('data-lucide', 'square');
+        status.classList.remove('hidden');
+        lucide.createIcons();
+    };
+
+    recognition.onresult = (event) => {
+        let interimTranscript = '';
+        let finalTranscript = '';
+
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+                finalTranscript += event.results[i][0].transcript;
+            } else {
+                interimTranscript += event.results[i][0].transcript;
+            }
+        }
+
+        if (finalTranscript) {
+            const currentVal = descField.value;
+            const appendStr = (currentVal && !currentVal.endsWith(' ')) ? ' ' + finalTranscript : finalTranscript;
+            descField.value += appendStr;
+            window.currentVoiceScript += appendStr;
+            updateCharCount(descField);
+        }
+    };
+
+    recognition.onerror = (event) => {
+        console.error('Speech recognition error', event.error);
+        if (event.error === 'not-allowed') {
+            showToast('Permission Denied', 'Please allow microphone access to use voice recording.', 'error');
+        }
+        toggleVoiceRecording(); // Stop
+    };
+
+    recognition.onend = () => {
+        if (isRecording) toggleVoiceRecording(); // Stop UI if ended naturally
+    };
+
+    try {
+        recognition.start();
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 
