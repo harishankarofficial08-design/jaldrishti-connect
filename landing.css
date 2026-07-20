@@ -52,7 +52,6 @@
     height: 48px;
     width: auto;
     object-fit: contain;
-    mix-blend-mode: multiply;
     transform: scale(1.1);
 }
 .nav-links {
