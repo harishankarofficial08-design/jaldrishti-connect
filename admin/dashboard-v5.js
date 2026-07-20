@@ -239,6 +239,66 @@ const DEFAULT_COMPLAINTS = [
         status: "Investigating",
         remarks: "Air quality monitors triggered.",
         timeline: { submitted: "2026-07-20T13:50", received: "2026-07-20T14:00", investigating: "2026-07-20T14:15", resolved: null }
+    },
+    {
+        id: "JD-93005", user: "Jigani Auto Union", location: "Jigani Main Road Circle", lat: 12.7880, lng: 77.6350,
+        category: "Toxic Dust Emission", description: "Thick layer of unidentified white powder coating vehicles overnight from nearby cement mixing plant.",
+        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T07:15",
+        status: "Submitted", remarks: "Pending air quality verification.", timeline: { submitted: "2026-07-21T07:20", received: null, investigating: null, resolved: null }
+    },
+    {
+        id: "JD-93006", user: "Lake Conservation NGO", location: "Anekal Lake East Bank", lat: 12.7110, lng: 77.7020,
+        category: "Wetland Encroachment", description: "Trucks seen dumping soil directly into the lake's eastern wetland buffer zone to reclaim land.",
+        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T09:40",
+        status: "Investigating", remarks: "Survey department dispatched for inspection.", timeline: { submitted: "2026-07-21T09:45", received: "2026-07-21T10:00", investigating: "2026-07-21T10:30", resolved: null }
+    },
+    {
+        id: "JD-93007", user: "Suresh", location: "Anekal APMC Yard", lat: 12.7180, lng: 77.7000,
+        category: "Rotting Organic Waste", description: "Hundreds of kilos of unsold vegetable waste rotting in the open drain.",
+        photo: "https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T11:10",
+        status: "Investigating", remarks: "Municipality cleanup crew assigned.", timeline: { submitted: "2026-07-21T11:15", received: "2026-07-21T11:30", investigating: "2026-07-21T12:00", resolved: null }
+    },
+    {
+        id: "JD-93008", user: "Jigani Layout Residents", location: "Jigani Phase 2 Residential Layout", lat: 12.7780, lng: 77.6250,
+        category: "Groundwater Contamination", description: "Three local borewells have started yielding muddy, oily water since last week.",
+        photo: "https://images.unsplash.com/photo-1538300342682-be57b6d5f482?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T13:20",
+        status: "Submitted", remarks: "KSPCB testing team scheduled for tomorrow.", timeline: { submitted: "2026-07-21T13:25", received: null, investigating: null, resolved: null }
+    },
+    {
+        id: "JD-93009", user: "Green Anekal", location: "Anekal Town Outskirts", lat: 12.7050, lng: 77.7100,
+        category: "Illegal Tree Felling", description: "Multiple mature banyan trees chopped down near the drainage canal without permits.",
+        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T14:45",
+        status: "Investigating", remarks: "Forest department alerted.", timeline: { submitted: "2026-07-21T14:50", received: "2026-07-21T15:00", investigating: "2026-07-21T15:30", resolved: null }
+    },
+    {
+        id: "JD-93010", user: "Jigani Industrial Workers", location: "Jigani Industrial Area Phase 1", lat: 12.7820, lng: 77.6380,
+        category: "Hazardous Chemical Spill", description: "Large blue drum tipped over leaking unidentified solvent onto the pedestrian walkway.",
+        photo: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T16:10",
+        status: "Investigating", remarks: "Hazmat response team en route.", timeline: { submitted: "2026-07-21T16:15", received: "2026-07-21T16:20", investigating: "2026-07-21T16:30", resolved: null }
+    },
+    {
+        id: "JD-93011", user: "Meena", location: "Anekal Post Office Road", lat: 12.7130, lng: 77.6970,
+        category: "Plastic Burning", description: "Local scrap yard burning large quantities of PVC pipes and plastic waste.",
+        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T17:30",
+        status: "Submitted", remarks: "Police patrolling unit notified.", timeline: { submitted: "2026-07-21T17:35", received: null, investigating: null, resolved: null }
+    },
+    {
+        id: "JD-93012", user: "Jigani Electronics Hub", location: "Jigani Electronic Park", lat: 12.7850, lng: 77.6300,
+        category: "E-Waste Dumping", description: "Hundreds of discarded circuit boards dumped in the empty plot next to the park.",
+        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T18:45",
+        status: "Investigating", remarks: "E-waste management board notified.", timeline: { submitted: "2026-07-21T18:50", received: "2026-07-21T19:00", investigating: "2026-07-21T19:15", resolved: null }
+    },
+    {
+        id: "JD-93013", user: "Kiran", location: "Anekal Government Hospital", lat: 12.7100, lng: 77.6950,
+        category: "Biomedical Waste Overflow", description: "Yellow and red biohazard bags piling up outside the designated disposal area.",
+        photo: "https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T19:20",
+        status: "Submitted", remarks: "Health officer informed.", timeline: { submitted: "2026-07-21T19:25", received: null, investigating: null, resolved: null }
+    },
+    {
+        id: "JD-93014", user: "Jigani Food Processing Unit", location: "Jigani Phase 3", lat: 12.7950, lng: 77.6450,
+        category: "Organic Sludge Discharge", description: "Food processing factory discharging untreated thick sludge directly into the stormwater drain.",
+        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400", dateTime: "2026-07-21T20:10",
+        status: "Investigating", remarks: "KSPCB inspection scheduled.", timeline: { submitted: "2026-07-21T20:15", received: "2026-07-21T20:30", investigating: "2026-07-21T21:00", resolved: null }
     }
 ];
 
@@ -304,11 +364,11 @@ const DEFAULT_REPORTS = [
 
 // Load databases or write defaults
 function initDatabase() {
-    if (!localStorage.getItem("jd_locations_v5")) {
-        localStorage.setItem("jd_locations_v5", JSON.stringify(DEFAULT_LOCATIONS));
+    if (!localStorage.getItem("jd_locations_v6")) {
+        localStorage.setItem("jd_locations_v6", JSON.stringify(DEFAULT_LOCATIONS));
     }
     // Force overwrite complaints to always show the latest demo pins
-    localStorage.setItem("jd_complaints_v5", JSON.stringify(DEFAULT_COMPLAINTS));
+    localStorage.setItem("jd_complaints_v6", JSON.stringify(DEFAULT_COMPLAINTS));
     if (!localStorage.getItem("jd_industries")) {
         localStorage.setItem("jd_industries", JSON.stringify(DEFAULT_INDUSTRIES));
     }
@@ -318,18 +378,18 @@ function initDatabase() {
 }
 
 // Get Database items
-const getLocations = () => JSON.parse(localStorage.getItem("jd_locations_v5"));
-const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v5"));
+const getLocations = () => JSON.parse(localStorage.getItem("jd_locations_v6"));
+const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v6"));
 const getIndustries = () => JSON.parse(localStorage.getItem("jd_industries"));
 const getReports = () => JSON.parse(localStorage.getItem("jd_reports"));
 
 // Update database items
 const saveLocations = (data) => {
-    localStorage.setItem("jd_locations_v5", JSON.stringify(data));
+    localStorage.setItem("jd_locations_v6", JSON.stringify(data));
     pushToSupabase('locations', data);
 };
 const saveComplaints = (data) => {
-    localStorage.setItem("jd_complaints_v5", JSON.stringify(data));
+    localStorage.setItem("jd_complaints_v6", JSON.stringify(data));
     pushToSupabase('complaints', data);
 };
 const saveIndustries = (data) => {
