@@ -185,6 +185,90 @@ const DEFAULT_COMPLAINTS = [
             investigating: null,
             resolved: null
         }
+    },
+    {
+        id: "JD-92401",
+        user: "Anonymous Reporter",
+        location: "Haragadde Main Road",
+        lat: 12.76500,
+        lng: 77.65000,
+        category: "Illegal Garbage Burning",
+        description: "Burning of plastic and industrial solid waste near the storm drain. Thick black smoke observed.",
+        photo: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-20T10:00",
+        status: "Investigating",
+        remarks: "Local authorities dispatched to extinguish fire and issue penalty.",
+        timeline: { submitted: "2026-07-20T10:15", received: "2026-07-20T10:30", investigating: "2026-07-20T11:00", resolved: null }
+    },
+    {
+        id: "JD-92512",
+        user: "Rajapura Farm Co-op",
+        location: "Rajapura Irrigation Canal",
+        lat: 12.75500,
+        lng: 77.67000,
+        category: "Industrial Dye Discharge",
+        description: "Canal water has turned unnatural deep blue color. Affecting crop irrigation.",
+        photo: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-19T16:00",
+        status: "Submitted",
+        remarks: "Awaiting KSPCB mobile testing unit.",
+        timeline: { submitted: "2026-07-19T16:20", received: null, investigating: null, resolved: null }
+    },
+    {
+        id: "JD-92633",
+        user: "Electronic City Residents",
+        location: "Electronic City Phase 2",
+        lat: 12.83000,
+        lng: 77.67500,
+        category: "Sewer Line Overflow",
+        description: "Raw sewage mixing with rainwater flowing onto the main street due to blocked industrial drains.",
+        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-20T08:00",
+        status: "Investigating",
+        remarks: "BWSSB and KSPCB joint task force notified.",
+        timeline: { submitted: "2026-07-20T08:30", received: "2026-07-20T09:00", investigating: "2026-07-20T10:00", resolved: null }
+    },
+    {
+        id: "JD-92745",
+        user: "Neraluru Watch",
+        location: "Neraluru Lake Inlet",
+        lat: 12.79000,
+        lng: 77.72000,
+        category: "Chemical Frothing",
+        description: "Lake inlet is frothing heavily during the recent rains. Suspected upstream surfactant release.",
+        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-18T18:00",
+        status: "Submitted",
+        remarks: "Under review.",
+        timeline: { submitted: "2026-07-18T18:30", received: null, investigating: null, resolved: null }
+    },
+    {
+        id: "JD-92850",
+        user: "Jigani Tech Park Assoc",
+        location: "Jigani Internal Road 4",
+        lat: 12.79000,
+        lng: 77.62500,
+        category: "Suspicious Tanker Discharge",
+        description: "An unmarked tanker was seen dumping liquid waste into the open storm drain near the tech park boundary.",
+        photo: "https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-19T23:45",
+        status: "Investigating",
+        remarks: "CCTV footage requested from nearby facilities.",
+        timeline: { submitted: "2026-07-20T00:15", received: "2026-07-20T07:00", investigating: "2026-07-20T08:30", resolved: null }
+    },
+    {
+        id: "JD-92999",
+        user: "Karpuru Village Panchayat",
+        location: "Karpuru Check Dam",
+        lat: 12.74000,
+        lng: 77.70500,
+        category: "Groundwater Contamination",
+        description: "Panchayat borewell showing extremely high heavy metal content. Water smells of sulfur.",
+        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-17T09:00",
+        status: "Submitted",
+        remarks: "Pending advanced lab results.",
+        timeline: { submitted: "2026-07-17T09:45", received: null, investigating: null, resolved: null }
     }
 ];
 
@@ -253,9 +337,8 @@ function initDatabase() {
     if (!localStorage.getItem("jd_locations")) {
         localStorage.setItem("jd_locations", JSON.stringify(DEFAULT_LOCATIONS));
     }
-    if (!localStorage.getItem("jd_complaints") || JSON.parse(localStorage.getItem("jd_complaints")).length < DEFAULT_COMPLAINTS.length) {
-        localStorage.setItem("jd_complaints", JSON.stringify(DEFAULT_COMPLAINTS));
-    }
+    // Force overwrite complaints to always show the latest demo pins
+    localStorage.setItem("jd_complaints", JSON.stringify(DEFAULT_COMPLAINTS));
     if (!localStorage.getItem("jd_industries")) {
         localStorage.setItem("jd_industries", JSON.stringify(DEFAULT_INDUSTRIES));
     }
