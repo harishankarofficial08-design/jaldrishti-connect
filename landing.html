@@ -422,7 +422,20 @@
             <span class="legend-item"><span class="legend-dot red"></span> Pollution Reported</span>
         </div>
         <div class="landing-map-card glass-card reveal-on-scroll" id="landing-map-wrapper">
-            <div id="landing-leaflet-map"></div>
+            <div class="map-layout-split">
+                <div id="landing-leaflet-map" class="map-area"></div>
+                <div id="map-side-panel" class="map-side-panel hidden">
+                    <div class="panel-header">
+                        <h3 id="panel-title">Report Details</h3>
+                        <button id="panel-close-btn" class="panel-close" aria-label="Close panel">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                    <div class="panel-content" id="panel-content">
+                        <div class="panel-placeholder">Select a location or complaint marker on the map to view detailed information.</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

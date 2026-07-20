@@ -864,6 +864,98 @@
 #landing-leaflet-map { height: 540px; width: 100%; background: var(--bg-dark); }
 @media (max-width: 600px) { #landing-leaflet-map { height: 360px; } }
 
+.map-layout-split {
+    display: flex;
+    width: 100%;
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 600px) { .map-layout-split { height: 360px; } }
+
+#landing-leaflet-map.map-area {
+    height: 100%;
+    flex-grow: 1;
+    transition: width 0.3s ease;
+}
+
+.map-side-panel {
+    width: 320px;
+    height: 100%;
+    background: #ffffff;
+    border-left: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 15px rgba(0,0,0,0.03);
+    z-index: 1000;
+}
+
+.map-side-panel.hidden {
+    transform: translateX(100%);
+    position: absolute;
+    right: 0;
+}
+
+.map-side-panel .panel-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-light);
+}
+
+.map-side-panel .panel-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.map-side-panel .panel-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.map-side-panel .panel-close:hover {
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.map-side-panel .panel-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.panel-placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 20px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .map-side-panel {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        max-width: 320px;
+    }
+}
 
 /* =====================================================
    STATISTICS

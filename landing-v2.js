@@ -728,15 +728,20 @@ function renderLandingMapMarkers() {
             className: '', iconSize: [16, 16], iconAnchor: [8, 8]
         });
         const m = L.marker([loc.lat, loc.lng], { icon }).addTo(landingMap);
-        m.bindPopup(`
-            <div style="font-family:'Outfit',sans-serif;min-width:200px;padding:4px;">
-                <strong style="font-size:0.9rem;">${loc.name}</strong><br>
-                <span style="color:${color};font-weight:600;font-size:0.8rem;">● ${loc.status}</span><br>
-                <small style="color:#94a3b8;">pH: ${loc.ph} | TDS: ${loc.tds} mg/L | BOD: ${loc.bod} mg/L</small><br>
-                <p style="margin:6px 0 0;font-size:0.78rem;color:#94a3b8;line-height:1.4;">${loc.summary}</p>
-                <small style="color:#64748b;">Verified by: ${loc.verifier}</small>
+        const m = L.marker([loc.lat, loc.lng], { icon }).addTo(landingMap);
+        const popupHtml = `
+            <div style="font-family:'Outfit',sans-serif;padding:4px;">
+                <strong style="font-size:1.1rem;">${loc.name}</strong><br>
+                <span style="color:${color};font-weight:600;font-size:0.9rem;display:inline-block;margin-bottom:8px;">● ${loc.status}</span><br>
+                <div style="background:var(--bg-light);padding:10px;border-radius:8px;margin-bottom:12px;">
+                    <small style="color:#64748b;font-weight:600;">METRICS</small><br>
+                    <small style="color:#475569;display:block;margin-top:4px;">pH: <strong>${loc.ph}</strong> | TDS: <strong>${loc.tds} mg/L</strong> | BOD: <strong>${loc.bod} mg/L</strong></small>
+                </div>
+                <p style="margin:6px 0 12px;font-size:0.9rem;color:#475569;line-height:1.5;">${loc.summary}</p>
+                <small style="color:#64748b;font-size:0.8rem;border-top:1px solid #e2e8f0;padding-top:10px;display:block;">Verified by: ${loc.verifier}</small>
             </div>
-        `, { maxWidth: 280 });
+        `;
+        m.on('click', () => openMapSidePanel(popupHtml));
         landingMapMarkers.push(m);
     });
 
@@ -749,20 +754,55 @@ function renderLandingMapMarkers() {
             className: '', iconSize: [14, 14], iconAnchor: [7, 7]
         });
         const m = L.marker([c.lat, c.lng], { icon }).addTo(landingMap);
-        const dateStr = new Date(c.dateTime).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
-        m.bindPopup(`
-            <div style="font-family:'Outfit',sans-serif;min-width:220px;padding:4px;">
-                ${c.photo ? `<img src="${c.photo}" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
-                <strong style="font-size:0.88rem;">${c.category}</strong><br>
-                <small style="color:#94a3b8;font-family:monospace;">ID: ${c.id}</small><br>
-                <span style="color:${statusColor};font-size:0.78rem;font-weight:600;">● ${c.status}</span><br>
-                <p style="margin:6px 0 0;font-size:0.78rem;color:#94a3b8;line-height:1.4;">${c.description.substring(0, 100)}${c.description.length > 100 ? '...' : ''}</p>
-                <small style="color:#64748b;">📅 ${dateStr}</small>
+        const dateStr = new Date(c.dateTime).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        const popupHtml = `
+            <div style="font-family:'Outfit',sans-serif;padding:4px;">
+                ${c.photo ? `<img src="${c.photo}" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">` : ''}
+                <strong style="font-size:1.1rem;">${c.category}</strong><br>
+                <small style="color:#94a3b8;font-family:monospace;margin-bottom:8px;display:inline-block;">ID: ${c.id}</small><br>
+                <span style="color:${statusColor};font-size:0.9rem;font-weight:600;display:inline-block;margin-bottom:12px;">● ${c.status}</span><br>
+                
+                <div style="background:var(--bg-light);padding:12px;border-radius:8px;margin-bottom:12px;">
+                    <p style="margin:0;font-size:0.9rem;color:#475569;line-height:1.5;">${c.description}</p>
+                </div>
+                
+                ${c.remarks ? `<p style="margin:0 0 12px;font-size:0.85rem;color:#f97316;"><strong>Update:</strong> ${c.remarks}</p>` : ''}
+                
+                <small style="color:#64748b;font-size:0.8rem;border-top:1px solid #e2e8f0;padding-top:10px;display:block;">
+                    <i data-lucide="clock" style="width:12px;height:12px;display:inline-block;vertical-align:middle;margin-right:4px;"></i>
+                    Reported on ${dateStr}
+                </small>
             </div>
-        `, { maxWidth: 280 });
+        `;
+        m.on('click', () => openMapSidePanel(popupHtml));
         landingMapMarkers.push(m);
     });
 }
+
+function openMapSidePanel(contentHtml) {
+    const panel = document.getElementById('map-side-panel');
+    const content = document.getElementById('panel-content');
+    if (!panel || !content) return;
+    
+    content.innerHTML = contentHtml;
+    panel.classList.remove('hidden');
+    
+    // Re-initialize lucide icons inside the newly injected html
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+// Wire up the close button for the side panel
+document.addEventListener('DOMContentLoaded', () => {
+    const closeBtn = document.getElementById('panel-close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            const panel = document.getElementById('map-side-panel');
+            if (panel) panel.classList.add('hidden');
+        });
+    }
+});
 
 
 // ====================================================
