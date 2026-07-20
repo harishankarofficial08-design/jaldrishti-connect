@@ -49,7 +49,7 @@
     color: var(--primary);
 }
 .custom-logo {
-    height: 36px;
+    height: 44px;
     width: auto;
     object-fit: contain;
     mix-blend-mode: multiply;
