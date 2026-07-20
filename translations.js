@@ -300,6 +300,13 @@ function toggleLanguage() {
 }
 
 function applyTranslations() {
+    // Update toggle switch UI
+    const langSwitch = document.getElementById('lang-switch');
+    if (langSwitch) {
+        langSwitch.setAttribute('data-lang', currentLang);
+    }
+
+    // Translate DOM elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[currentLang] && translations[currentLang][key]) {

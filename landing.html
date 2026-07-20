@@ -34,7 +34,13 @@
             <a href="#complaint-form" onclick="closeMobileNav()" data-i18n="nav-report">Report</a>
             <a href="#live-map" onclick="closeMobileNav()" data-i18n="nav-map">Live Map</a>
             <a href="#tracker" onclick="closeMobileNav()" data-i18n="nav-track">Track Complaint</a>
-            <button class="btn-text lang-toggle-btn" onclick="toggleLanguage()" data-i18n="lang-btn" style="margin-left: 10px; padding: 6px 12px; font-weight: bold; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border-light); cursor: pointer;">ಕನ್ನಡ</button>
+            
+            <!-- Language Switch Pill -->
+            <div class="lang-switch" id="lang-switch" onclick="toggleLanguage()" data-lang="en">
+                <div class="lang-slider" id="lang-slider"></div>
+                <span class="lang-option" id="lang-en">EN</span>
+                <span class="lang-option" id="lang-kn">KN</span>
+            </div>
         </div>
         <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
             <i data-lucide="menu" id="hamburger-icon"></i>

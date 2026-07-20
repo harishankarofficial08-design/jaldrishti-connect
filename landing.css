@@ -62,14 +62,63 @@
     gap: 28px;
 }
 .nav-links a {
-    color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
+    color: var(--text-dark);
+    font-weight: 600;
     transition: color 0.2s;
-    white-space: nowrap;
+    font-size: 0.95rem;
 }
-.nav-links a:hover { color: var(--text-main); }
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Language Switch Pill */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    width: 80px;
+    height: 36px;
+    margin-left: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.lang-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 36px;
+    height: 28px;
+    background: #8b5cf6; /* Purple active color */
+    border-radius: 20px;
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+.lang-switch[data-lang="kn"] .lang-slider {
+    transform: translateX(36px);
+}
+.lang-option {
+    flex: 1;
+    text-align: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    z-index: 1;
+    color: #64748b;
+    transition: color 0.3s ease;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lang-switch[data-lang="en"] #lang-en {
+    color: white;
+}
+.lang-switch[data-lang="kn"] #lang-kn {
+    color: white;
+}
+
 .nav-dashboard-btn {
     display: flex !important;
     align-items: center;
