@@ -26,6 +26,30 @@ const DEFAULT_LOCATIONS = [
         summary: "Water parameters lie within standard residential thresholds. No chemical effluents detected in recent weekly testing cycles.",
         verifier: "Anekal Water Testing Lab"
     },
+    {
+        id: "loc-jigani-lake",
+        name: "Jigani Lake Perimeter",
+        lat: 12.7900,
+        lng: 77.6400,
+        status: "Moderate",
+        ph: 6.5,
+        tds: 1100,
+        bod: 30,
+        summary: "Slight elevation in BOD levels observed. Monitoring recommended.",
+        verifier: "KSPCB Mobile Lab Team C"
+    },
+    {
+        id: "loc-anekal-feeder",
+        name: "Anekal Industrial Feeder",
+        lat: 12.7150,
+        lng: 77.7050,
+        status: "Polluted",
+        ph: 4.9,
+        tds: 3800,
+        bod: 95,
+        summary: "High acidity and TDS from untreated factory runoff.",
+        verifier: "KSPCB Central Lab"
+    },
 
 ];
 
@@ -159,6 +183,62 @@ const DEFAULT_COMPLAINTS = [
         status: "Investigating",
         remarks: "CCTV footage requested from nearby facilities.",
         timeline: { submitted: "2026-07-20T00:15", received: "2026-07-20T07:00", investigating: "2026-07-20T08:30", resolved: null }
+    },
+    {
+        id: "JD-93001",
+        user: "Jigani Lake Watch",
+        location: "Jigani Lake",
+        lat: 12.7900,
+        lng: 77.6400,
+        category: "Solid Waste Dumping",
+        description: "Construction debris dumped right on the lakebed.",
+        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-20T10:15",
+        status: "Submitted",
+        remarks: "Pending review.",
+        timeline: { submitted: "2026-07-20T10:30", received: null, investigating: null, resolved: null }
+    },
+    {
+        id: "JD-93002",
+        user: "Ravi Shankar",
+        location: "Anekal Industrial Feeder",
+        lat: 12.7150,
+        lng: 77.7050,
+        category: "Air and Water Pollution",
+        description: "Black smoke from factory mixing with highly acidic runoff into the drains.",
+        photo: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-20T11:00",
+        status: "Investigating",
+        remarks: "KSPCB team dispatched.",
+        timeline: { submitted: "2026-07-20T11:15", received: "2026-07-20T11:30", investigating: "2026-07-20T12:00", resolved: null }
+    },
+    {
+        id: "JD-93003",
+        user: "Anekal Market Assoc",
+        location: "Anekal Main Road",
+        lat: 12.7100,
+        lng: 77.6900,
+        category: "Sewage Water Logging",
+        description: "Drain overflow causing foul smelling water logging in front of the market.",
+        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-20T12:30",
+        status: "Submitted",
+        remarks: "Forwarded to municipality.",
+        timeline: { submitted: "2026-07-20T12:45", received: null, investigating: null, resolved: null }
+    },
+    {
+        id: "JD-93004",
+        user: "Anonymous",
+        location: "Jigani Phase 1 Border",
+        lat: 12.7850,
+        lng: 77.6250,
+        category: "Pungent Chemical Odor",
+        description: "Unbearable smell resembling sulfur coming from the drainage canals.",
+        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-20T13:45",
+        status: "Investigating",
+        remarks: "Air quality monitors triggered.",
+        timeline: { submitted: "2026-07-20T13:50", received: "2026-07-20T14:00", investigating: "2026-07-20T14:15", resolved: null }
     }
 ];
 

@@ -4,12 +4,12 @@
 
 // ---- LocalStorage DB Helpers (shared with admin dashboard) ----
 const LD = {
-    getComplaints:  () => JSON.parse(localStorage.getItem('jd_complaints')  || '[]'),
+    getComplaints:  () => JSON.parse(localStorage.getItem('jd_complaints_v5')  || '[]'),
     saveComplaints: (d) => {
-        localStorage.setItem('jd_complaints', JSON.stringify(d));
+        localStorage.setItem('jd_complaints_v5', JSON.stringify(d));
         if (typeof pushToSupabase === 'function') pushToSupabase('complaints', d);
     },
-    getLocations:   () => JSON.parse(localStorage.getItem('jd_locations')   || '[]'),
+    getLocations:   () => JSON.parse(localStorage.getItem('jd_locations_v5')   || '[]'),
     getIndustries:  () => JSON.parse(localStorage.getItem('jd_industries')  || '[]'),
     getReports:     () => JSON.parse(localStorage.getItem('jd_reports')     || '[]'),
 };
@@ -19,13 +19,21 @@ const SEED = {
     locations: [
         { id:"loc-jigani-ind",    name:"Jigani Industrial Area (Border Zone)",      lat:12.78330, lng:77.63330, status:"Polluted",  ph:5.4, tds:3100, bod:85,  summary:"Effluent levels exceed regulatory limits. Elevated TDS detected.", verifier:"KSPCB Mobile Lab Team B" },
         { id:"loc-anekal-lake",   name:"Anekal Lake Border (Resident Zone)",         lat:12.70990, lng:77.69890, status:"Safe",     ph:7.2, tds:450,  bod:12,  summary:"Parameters within thresholds. No effluents detected.", verifier:"Anekal Water Testing Lab" },
-        { id:"loc-bommasandra",   name:"Bommasandra Border (Industrial Zone)",       lat:12.81670, lng:77.68330, status:"Polluted",  ph:4.8, tds:4200, bod:110, summary:"Severe acidic spike during midnight monitoring. Heavy metals screening recommended.", verifier:"KSPCB Central Lab" },
-        { id:"loc-gusti",         name:"Gusti Tool Works Surrounding (Bommasandra)", lat:12.80900, lng:77.68900, status:"Moderate", ph:6.2, tds:1850, bod:42,  summary:"Border runoff turbidity close to compliance thresholds.", verifier:"KSPCB Mobile Lab Team A" }
+        { id:"loc-jigani-lake",   name:"Jigani Lake Perimeter",                      lat:12.7900,  lng:77.6400,  status:"Moderate", ph:6.5, tds:1100, bod:30,  summary:"Slight elevation in BOD levels observed.", verifier:"KSPCB Mobile Lab Team C" },
+        { id:"loc-anekal-feeder", name:"Anekal Industrial Feeder",                   lat:12.7150,  lng:77.7050,  status:"Polluted", ph:4.9, tds:3800, bod:95,  summary:"High acidity and TDS from untreated factory runoff.", verifier:"KSPCB Central Lab" }
     ],
     complaints: [
         { id:"JD-90432", user:"Sneha Sundi",               location:"Jigani Industrial Area (Border Zone)", lat:12.78330, lng:77.63330, category:"Illegal Midnight Effluent Discharge", description:"Dark, chemical-smelling runoff observed from a pipeline at 1:30 AM.", photo:"https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-16T01:30", status:"Investigating", remarks:"KSPCB Dispatcher: Patrol team assigned.", timeline:{ submitted:"2026-07-16T02:00", received:"2026-07-16T09:00", investigating:"2026-07-16T11:30", resolved:null } },
-        { id:"JD-88219", user:"Rajesh Gowda",              location:"Bommasandra Border (Industrial Zone)",  lat:12.81670, lng:77.68330, category:"Foaming / Sludge Accumulation",       description:"Large patches of chemical foam on the channel. Severe foul odor.",          photo:"https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-15T23:15", status:"Submitted",    remarks:"Pending review.", timeline:{ submitted:"2026-07-15T23:45", received:null, investigating:null, resolved:null } },
-        { id:"JD-71043", user:"Anekal Farmer Association", location:"Anekal Lake Border (Resident Zone)",   lat:12.70990, lng:77.69890, category:"Borewell Water Contamination",         description:"Borewell water turned yellowish with strong chlorine-like smell.",          photo:"https://images.unsplash.com/photo-1538300342682-be57b6d5f482?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-12T08:00", status:"Resolved",     remarks:"Upstream pipe leak closed. 2,50,000 INR fine issued.", timeline:{ submitted:"2026-07-12T09:30", received:"2026-07-12T10:15", investigating:"2026-07-13T10:00", resolved:"2026-07-15T16:00" } }
+        { id:"JD-71043", user:"Anekal Farmer Association", location:"Anekal Lake Border (Resident Zone)",   lat:12.70990, lng:77.69890, category:"Borewell Water Contamination",         description:"Borewell water turned yellowish with strong chlorine-like smell.",          photo:"https://images.unsplash.com/photo-1538300342682-be57b6d5f482?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-12T08:00", status:"Resolved",     remarks:"Upstream pipe leak closed. 2,50,000 INR fine issued.", timeline:{ submitted:"2026-07-12T09:30", received:"2026-07-12T10:15", investigating:"2026-07-13T10:00", resolved:"2026-07-15T16:00" } },
+        { id:"JD-91255", user:"Local Volunteer Group",     location:"Jigani APC Circle (Urban Zone)",       lat:12.78500, lng:77.63500, category:"Garbage Dumping in Water Body",        description:"Large amounts of solid waste and plastic bags are being dumped into the drain.", photo:"https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-18T14:20", status:"Investigating", remarks:"Case forwarded to solid waste management.", timeline:{ submitted:"2026-07-18T14:45", received:"2026-07-19T09:10", investigating:"2026-07-19T10:30", resolved:null } },
+        { id:"JD-91880", user:"Muralidhar R.",             location:"Jigani Industrial Layout Phase 2",     lat:12.78000, lng:77.63000, category:"Chemical Foam Overflow",               description:"Toxic foam overflowing from the industrial drains onto the main road.",          photo:"https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-20T06:15", status:"Submitted",    remarks:"Pending initial review.", timeline:{ submitted:"2026-07-20T06:30", received:null, investigating:null, resolved:null } },
+        { id:"JD-92101", user:"Anekal Town Resident",      location:"Anekal Town Centre",                   lat:12.71200, lng:77.70100, category:"Drinking Water Discoloration",         description:"Municipal tap water has been coming out with a brownish tint for the last 48 hours.", photo:"https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-19T08:30", status:"Investigating", remarks:"Water supply temporarily halted.", timeline:{ submitted:"2026-07-19T09:00", received:"2026-07-19T10:15", investigating:"2026-07-19T11:00", resolved:null } },
+        { id:"JD-92334", user:"Ramesh K.",                 location:"Anekal Lake South Bank",               lat:12.70500, lng:77.69500, category:"Mass Fish Death",                      description:"Hundreds of dead fish have washed up on the southern banks of the lake.",        photo:"https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-20T06:45", status:"Submitted",    remarks:"High priority flag raised.", timeline:{ submitted:"2026-07-20T07:10", received:null, investigating:null, resolved:null } },
+        { id:"JD-92850", user:"Jigani Tech Park Assoc",    location:"Jigani Internal Road 4",               lat:12.79000, lng:77.62500, category:"Suspicious Tanker Discharge",          description:"An unmarked tanker was seen dumping liquid waste into the open storm drain.",    photo:"https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-19T23:45", status:"Investigating", remarks:"CCTV footage requested.", timeline:{ submitted:"2026-07-20T00:15", received:"2026-07-20T07:00", investigating:"2026-07-20T08:30", resolved:null } },
+        { id:"JD-93001", user:"Jigani Lake Watch",         location:"Jigani Lake",                          lat:12.7900,  lng:77.6400,  category:"Solid Waste Dumping",                  description:"Construction debris dumped right on the lakebed.",                               photo:"https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-20T10:15", status:"Submitted",    remarks:"Pending review.", timeline:{ submitted:"2026-07-20T10:30", received:null, investigating:null, resolved:null } },
+        { id:"JD-93002", user:"Ravi Shankar",              location:"Anekal Industrial Feeder",             lat:12.7150,  lng:77.7050,  category:"Air and Water Pollution",              description:"Black smoke from factory mixing with highly acidic runoff into the drains.",     photo:"https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-20T11:00", status:"Investigating", remarks:"KSPCB team dispatched.", timeline:{ submitted:"2026-07-20T11:15", received:"2026-07-20T11:30", investigating:"2026-07-20T12:00", resolved:null } },
+        { id:"JD-93003", user:"Anekal Market Assoc",       location:"Anekal Main Road",                     lat:12.7100,  lng:77.6900,  category:"Sewage Water Logging",                 description:"Drain overflow causing foul smelling water logging in front of the market.",     photo:"https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-20T12:30", status:"Submitted",    remarks:"Forwarded to municipality.", timeline:{ submitted:"2026-07-20T12:45", received:null, investigating:null, resolved:null } },
+        { id:"JD-93004", user:"Anonymous",                 location:"Jigani Phase 1 Border",                lat:12.7850,  lng:77.6250,  category:"Pungent Chemical Odor",                description:"Unbearable smell resembling sulfur coming from the drainage canals.",            photo:"https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400", dateTime:"2026-07-20T13:45", status:"Investigating", remarks:"Air quality monitors triggered.", timeline:{ submitted:"2026-07-20T13:50", received:"2026-07-20T14:00", investigating:"2026-07-20T14:15", resolved:null } }
     ],
     industries: [
         { id:"ind-gusti",      name:"Gusti Tool Works",              address:"Phase 1, Bommasandra Industrial Area", status:"Compliant",     ph:7.2, tds:1450, lastReport:"2026-07-14", remarks:"Standard effluents treated via onsite recycling plant." },
@@ -55,9 +63,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     initDB();
 
     // Pull latest data from Supabase to sync local storage on load
-    if (typeof pullFromSupabase === 'function') {
-        await pullFromSupabase();
-    }
+    // if (typeof pullFromSupabase === 'function') {
+    //     await pullFromSupabase();
+    // }
     
     // Subscribe to realtime updates for the timeline tracker
     if (typeof initSupabaseRealtime === 'function') {
@@ -84,8 +92,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function initDB() {
-    if (!localStorage.getItem('jd_locations'))  localStorage.setItem('jd_locations',  JSON.stringify(SEED.locations));
-    if (!localStorage.getItem('jd_complaints')) localStorage.setItem('jd_complaints', JSON.stringify(SEED.complaints));
+    if (!localStorage.getItem('jd_locations_v5'))  localStorage.setItem('jd_locations_v5',  JSON.stringify(SEED.locations));
+    if (!localStorage.getItem('jd_complaints_v5')) localStorage.setItem('jd_complaints_v5', JSON.stringify(SEED.complaints));
     if (!localStorage.getItem('jd_industries')) localStorage.setItem('jd_industries', JSON.stringify(SEED.industries));
     if (!localStorage.getItem('jd_reports'))    localStorage.setItem('jd_reports',    JSON.stringify(SEED.reports));
 }
