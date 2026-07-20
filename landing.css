@@ -1260,7 +1260,7 @@ html { scroll-behavior: smooth; }
 
 /* Ensure select dropdown options have a dark background */
 select option {
-    background: #1e293b;
+    background: #ffffff;
     color: var(--text-main);
 }
 
