@@ -1119,15 +1119,13 @@ async function fetchReviews() {
 // WELCOME POPUP LOGIC
 // ====================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Show popup after 1.5 seconds if not already shown in this session
-    if (!sessionStorage.getItem('welcomePopupShown')) {
-        setTimeout(() => {
-            const modal = document.getElementById('welcome-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-            }
-        }, 1500);
-    }
+    // Show popup after 1.5 seconds unconditionally for now
+    setTimeout(() => {
+        const modal = document.getElementById('welcome-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+        }
+    }, 1500);
 
     // Close button logic
     const closeBtn = document.getElementById('welcome-close-btn');
