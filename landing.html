@@ -34,9 +34,6 @@
             <a href="#complaint-form" onclick="closeMobileNav()">Report</a>
             <a href="#live-map" onclick="closeMobileNav()">Live Map</a>
             <a href="#tracker" onclick="closeMobileNav()">Track Complaint</a>
-            <a href="admin/login.html" class="nav-dashboard-btn">
-                <i data-lucide="layout-grid"></i> Admin Dashboard
-            </a>
         </div>
         <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
             <i data-lucide="menu" id="hamburger-icon"></i>
@@ -677,7 +674,6 @@
             <a href="#live-map">Live Map</a>
             <a href="#tracker">Track Complaint</a>
             <a href="#live-stats">Statistics</a>
-            <a href="admin/login.html">Admin Dashboard</a>
         </div>
         <div class="footer-links-col">
             <h4>About</h4>
@@ -702,6 +698,30 @@
 <link rel="stylesheet" href="landing.css?v=2">
 <link rel="stylesheet" href="animations.css">
 
+<!-- ======================================================
+     WELCOME POPUP MODAL
+     ====================================================== -->
+<div class="welcome-modal-overlay hidden" id="welcome-modal">
+    <div class="welcome-modal-content glass-card">
+        <button class="welcome-close-btn" id="welcome-close-btn" aria-label="Close popup">
+            <i data-lucide="x"></i>
+        </button>
+        <div class="welcome-icon-ring">
+            <i data-lucide="alert-triangle" class="text-orange"></i>
+        </div>
+        <h2>Notice Pollution?</h2>
+        <p>Help us keep JalDrishti clean. If you see contaminated water, chemical foam, or illegal dumping, report it instantly.</p>
+        <div class="welcome-actions">
+            <button class="btn-primary w-full" onclick="closeWelcomePopup(); document.getElementById('hero-report-btn').click();">
+                <i data-lucide="camera"></i> Report an Incident Now
+            </button>
+            <button class="btn-outline w-full mt-2" onclick="closeWelcomePopup()">
+                Maybe Later
+            </button>
+        </div>
+    </div>
+</div>
+
 <!-- Load Supabase First -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-client.js"></script>
@@ -709,3 +729,4 @@
 <script src="landing-v2.js?v=2"></script>
 </body>
 </html>
+
