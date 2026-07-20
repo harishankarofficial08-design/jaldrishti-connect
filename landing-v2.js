@@ -787,6 +787,10 @@ function openMapSidePanel(contentHtml) {
     content.innerHTML = contentHtml;
     panel.classList.remove('hidden');
     
+    if (landingMap) {
+        setTimeout(() => landingMap.invalidateSize(), 300);
+    }
+    
     // Re-initialize lucide icons inside the newly injected html
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
@@ -799,7 +803,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             const panel = document.getElementById('map-side-panel');
-            if (panel) panel.classList.add('hidden');
+            if (panel) {
+                panel.classList.add('hidden');
+                if (landingMap) {
+                    setTimeout(() => landingMap.invalidateSize(), 300);
+                }
+            }
         });
     }
 });
