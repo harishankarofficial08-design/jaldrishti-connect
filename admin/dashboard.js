@@ -253,7 +253,7 @@ function initDatabase() {
     if (!localStorage.getItem("jd_locations")) {
         localStorage.setItem("jd_locations", JSON.stringify(DEFAULT_LOCATIONS));
     }
-    if (!localStorage.getItem("jd_complaints")) {
+    if (!localStorage.getItem("jd_complaints") || JSON.parse(localStorage.getItem("jd_complaints")).length < DEFAULT_COMPLAINTS.length) {
         localStorage.setItem("jd_complaints", JSON.stringify(DEFAULT_COMPLAINTS));
     }
     if (!localStorage.getItem("jd_industries")) {
