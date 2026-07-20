@@ -147,6 +147,44 @@ const DEFAULT_COMPLAINTS = [
             investigating: null,
             resolved: null
         }
+    },
+    {
+        id: "JD-92101",
+        user: "Anekal Town Resident",
+        location: "Anekal Town Centre",
+        lat: 12.71200,
+        lng: 77.70100,
+        category: "Drinking Water Discoloration",
+        description: "Municipal tap water has been coming out with a brownish tint for the last 48 hours. Many households in the vicinity are reporting the same issue.",
+        photo: "https://images.unsplash.com/photo-1574044557997-f0c2dfcb17ed?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-19T08:30",
+        status: "Investigating",
+        remarks: "KSPCB Water Quality Wing alerted. Water supply board temporarily halting distribution in the zone.",
+        timeline: {
+            submitted: "2026-07-19T09:00",
+            received: "2026-07-19T10:15",
+            investigating: "2026-07-19T11:00",
+            resolved: null
+        }
+    },
+    {
+        id: "JD-92334",
+        user: "Ramesh K.",
+        location: "Anekal Lake South Bank",
+        lat: 12.70500,
+        lng: 77.69500,
+        category: "Mass Fish Death",
+        description: "Hundreds of dead fish have washed up on the southern banks of the lake this morning. Suspected oxygen depletion from sudden chemical influx.",
+        photo: "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-20T06:45",
+        status: "Submitted",
+        remarks: "High priority flag raised due to ecological impact.",
+        timeline: {
+            submitted: "2026-07-20T07:10",
+            received: null,
+            investigating: null,
+            resolved: null
+        }
     }
 ];
 
