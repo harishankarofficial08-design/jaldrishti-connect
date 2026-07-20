@@ -589,12 +589,12 @@ function submitCitizenComplaint(e) {
         document.getElementById('submit-idle-state').classList.remove('hidden');
         document.getElementById('submit-loading-state').classList.add('hidden');
 
-        // Trigger n8n Webhook
-        fetch('http://localhost:5678/webhook/complaint-received', {
+        // Trigger Node.js Email Server Webhook
+        fetch('http://localhost:3001/webhook/complaint-received', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newComplaint)
-        }).catch(err => console.log('n8n Webhook error (or not running locally):', err));
+        }).catch(err => console.log('Email Server Webhook error:', err));
 
         showToast('Complaint Submitted!', `ID: ${id} — Sent to KSPCB.`, 'success');
     }, 1800);
