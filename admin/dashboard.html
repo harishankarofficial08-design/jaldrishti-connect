@@ -26,7 +26,7 @@
     <script>
         (async function checkAuth() {
             try {
-                const { data: { session } } = await window.supabase.auth.getSession();
+                const { data: { session } } = await window.supabaseClient.auth.getSession();
                 if (!session) {
                     window.location.replace('login.html');
                 }

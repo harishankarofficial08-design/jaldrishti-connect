@@ -16,39 +16,71 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     });
 
-    // Handle Login
+    let isRegisterMode = false;
+    const toggleReg = document.getElementById('toggle-register');
+    const headerTitle = document.querySelector('.login-header h2');
+    const btnText = document.querySelector('#login-submit-btn span');
+    const submitBtn = document.getElementById('login-submit-btn');
+
+    toggleReg.addEventListener('click', (e) => {
+        e.preventDefault();
+        isRegisterMode = !isRegisterMode;
+        if (isRegisterMode) {
+            headerTitle.textContent = "Create Admin";
+            btnText.textContent = "Register";
+            toggleReg.innerHTML = `Already have an account? <span style="color: var(--primary);">Log In</span>`;
+        } else {
+            headerTitle.textContent = "Admin Portal";
+            btnText.textContent = "Secure Login";
+            toggleReg.innerHTML = `Don't have an admin account? <span style="color: var(--primary);">Register</span>`;
+        }
+    });
+
+    // Handle Login or Register
     document.getElementById('admin-login-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = document.getElementById('admin-email').value;
         const password = pwdInput.value;
-        const btn = document.getElementById('login-submit-btn');
 
-        btn.disabled = true;
-        btn.innerHTML = '<i data-lucide="loader-2" class="spin"></i> <span>Authenticating...</span>';
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<i data-lucide="loader-2" class="spin"></i> <span>${isRegisterMode ? 'Registering...' : 'Authenticating...'}</span>`;
         lucide.createIcons();
 
         try {
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email: email,
-                password: password
-            });
-
-            if (error) {
-                showToast('Authentication Failed', 'Invalid Admin ID or Password.', 'error');
-                btn.disabled = false;
-                btn.innerHTML = '<span>Secure Login</span><i data-lucide="arrow-right"></i>';
-                lucide.createIcons();
+            if (isRegisterMode) {
+                const { data, error } = await window.supabaseClient.auth.signUp({
+                    email: email,
+                    password: password
+                });
+                
+                if (error) {
+                    throw error;
+                } else {
+                    showToast('Registration Success!', 'Account created successfully. Logging you in...', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1500);
+                }
             } else {
-                showToast('Success', 'Redirecting to dashboard...', 'success');
-                setTimeout(() => {
-                    window.location.href = 'dashboard.html';
-                }, 800);
+                const { data, error } = await window.supabaseClient.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    throw error;
+                } else {
+                    showToast('Success', 'Redirecting to dashboard...', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 800);
+                }
             }
         } catch (err) {
-            console.error("Login exception:", err);
+            console.error("Auth exception:", err);
             showToast('Error', err.message || 'An unexpected error occurred.', 'error');
-            btn.disabled = false;
-            btn.innerHTML = '<span>Secure Login</span><i data-lucide="arrow-right"></i>';
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `<span>${isRegisterMode ? 'Register' : 'Secure Login'}</span><i data-lucide="arrow-right"></i>`;
             lucide.createIcons();
         }
     });
@@ -56,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function checkIfLoggedIn() {
     try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await window.supabaseClient.auth.getSession();
         if (session) {
             window.location.replace('dashboard.html');
         }

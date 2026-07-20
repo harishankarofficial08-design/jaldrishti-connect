@@ -392,7 +392,7 @@ function applySidebarPermissions() {
 }
 
 async function performLogout() {
-    await supabase.auth.signOut();
+    await window.supabaseClient.auth.signOut();
     document.getElementById('app-workspace').classList.add('hidden');
     showToast("Session Terminated", "Logged out securely.", "info");
     setTimeout(() => {
