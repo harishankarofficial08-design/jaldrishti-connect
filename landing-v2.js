@@ -728,7 +728,6 @@ function renderLandingMapMarkers() {
             className: '', iconSize: [16, 16], iconAnchor: [8, 8]
         });
         const m = L.marker([loc.lat, loc.lng], { icon }).addTo(landingMap);
-        const m = L.marker([loc.lat, loc.lng], { icon }).addTo(landingMap);
         const popupHtml = `
             <div style="font-family:'Outfit',sans-serif;padding:4px;">
                 <strong style="font-size:1.1rem;">${loc.name}</strong><br>
