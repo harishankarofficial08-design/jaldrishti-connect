@@ -393,7 +393,7 @@ function requestGPS() {
             setTimeout(() => {
                 if (gpsMap) { gpsMap.remove(); gpsMap = null; }
                 gpsMap = L.map('gps-mini-map', { zoomControl: false, attributionControl: false }).setView([gpsCoords.lat, gpsCoords.lng], 15);
-                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(gpsMap);
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(gpsMap);
                 L.circleMarker([gpsCoords.lat, gpsCoords.lng], { radius: 10, fillColor: '#0ea5e9', color: '#fff', weight: 2, fillOpacity: 0.9 }).addTo(gpsMap);
                 lucide.createIcons();
             }, 100);
@@ -690,7 +690,7 @@ function initLandingMap() {
         scrollWheelZoom: false
     }).setView([12.76, 77.66], 12);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(landingMap);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(landingMap);
     renderLandingMapMarkers();
 }
 
