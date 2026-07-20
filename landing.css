@@ -1057,7 +1057,7 @@
     margin-bottom: 32px;
 }
 @media (max-width: 540px) {
-    .tracker-input-row { flex-direction: column; }
+    .tracker-input-row { flex-direction: column; align-items: stretch; }
     .tracker-input-row .btn-primary { width: 100%; justify-content: center; }
 }
 .tracker-result-header {
@@ -1404,6 +1404,7 @@ html { scroll-behavior: smooth; }
 
 /* Tracker input helper: removes bottom margin inside flex row */
 .tracker-input-row .input-group { margin-bottom: 0; }
+.tracker-input-row .input-group input { width: 100%; }
 
 /* Section container padding on small screens */
 @media (max-width: 480px) {
