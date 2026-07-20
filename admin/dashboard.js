@@ -109,6 +109,44 @@ const DEFAULT_COMPLAINTS = [
             investigating: "2026-07-13T10:00",
             resolved: "2026-07-15T16:00"
         }
+    },
+    {
+        id: "JD-91255",
+        user: "Local Volunteer Group",
+        location: "Jigani APC Circle (Urban Zone)",
+        lat: 12.78500,
+        lng: 77.63500,
+        category: "Garbage Dumping in Water Body",
+        description: "Large amounts of solid waste and plastic bags are being dumped into the secondary stormwater drain connected to the main lake.",
+        photo: "https://images.unsplash.com/photo-1585223368297-7c87c71a3843?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-18T14:20",
+        status: "Investigating",
+        remarks: "KSPCB Dispatcher: Case forwarded to solid waste management division for immediate clearing.",
+        timeline: {
+            submitted: "2026-07-18T14:45",
+            received: "2026-07-19T09:10",
+            investigating: "2026-07-19T10:30",
+            resolved: null
+        }
+    },
+    {
+        id: "JD-91880",
+        user: "Muralidhar R.",
+        location: "Jigani Industrial Layout Phase 2",
+        lat: 12.78000,
+        lng: 77.63000,
+        category: "Chemical Foam Overflow",
+        description: "Toxic foam overflowing from the industrial drains onto the main road near Phase 2 blocks. Very strong chemical smell causing breathing issues.",
+        photo: "https://images.unsplash.com/photo-1542385151-5120a164b123?auto=format&fit=crop&q=80&w=400",
+        dateTime: "2026-07-20T06:15",
+        status: "Submitted",
+        remarks: "Pending initial review by authorities.",
+        timeline: {
+            submitted: "2026-07-20T06:30",
+            received: null,
+            investigating: null,
+            resolved: null
+        }
     }
 ];
 
