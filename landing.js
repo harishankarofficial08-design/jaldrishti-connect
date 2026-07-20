@@ -910,3 +910,134 @@ function showToast(title, msg, type = 'info') {
         setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity 0.4s'; setTimeout(() => t.remove(), 400); }, 4000);
     }
 }
+
+/* =====================================================
+   SECTION 10 — REVIEWS
+   ===================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    // Star Rating Hover and Click Logic
+    const stars = document.querySelectorAll('.star-rating i');
+    const ratingInput = document.getElementById('review-rating');
+
+    stars.forEach(star => {
+        star.addEventListener('mouseenter', () => {
+            const rating = parseInt(star.getAttribute('data-rating'));
+            stars.forEach(s => {
+                if (parseInt(s.getAttribute('data-rating')) <= rating) s.classList.add('hovered');
+                else s.classList.remove('hovered');
+            });
+        });
+
+        star.addEventListener('mouseleave', () => {
+            stars.forEach(s => s.classList.remove('hovered'));
+        });
+
+        star.addEventListener('click', () => {
+            const rating = parseInt(star.getAttribute('data-rating'));
+            ratingInput.value = rating;
+            stars.forEach(s => {
+                if (parseInt(s.getAttribute('data-rating')) <= rating) s.classList.add('active');
+                else s.classList.remove('active');
+            });
+        });
+    });
+
+    // Handle Form Submit
+    const reviewForm = document.getElementById('review-form');
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('reviewer-name').value;
+            const rating = parseInt(ratingInput.value);
+            const comment = document.getElementById('review-comment').value;
+
+            if (rating === 0) {
+                showToast('Validation Error', 'Please select a star rating.', 'error');
+                return;
+            }
+
+            const btn = document.getElementById('submit-review-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<i data-lucide="loader-2" class="spin"></i> Submitting...';
+            lucide.createIcons();
+
+            try {
+                // Submit to Supabase
+                const { error } = await window.supabaseClient.from('reviews').insert([{ name, rating, comment }]);
+                if (error) throw error;
+
+                showToast('Review Submitted', 'Thank you for your feedback!', 'success');
+                reviewForm.reset();
+                ratingInput.value = "0";
+                stars.forEach(s => s.classList.remove('active'));
+                
+                // Refresh reviews
+                fetchReviews();
+            } catch (err) {
+                console.error("Error submitting review:", err);
+                showToast('Error', 'Failed to submit review. Try again later.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i data-lucide="send"></i> <span>Submit Review</span>';
+                lucide.createIcons();
+            }
+        });
+    }
+
+    // Fetch Initial Reviews
+    if (typeof window.supabaseClient !== 'undefined') {
+        fetchReviews();
+    }
+});
+
+async function fetchReviews() {
+    const grid = document.getElementById('reviews-grid');
+    if (!grid) return;
+
+    try {
+        const { data, error } = await window.supabaseClient
+            .from('reviews')
+            .select('*')
+            .order('created_at', { ascending: false })
+            .limit(6);
+
+        if (error) throw error;
+
+        grid.innerHTML = '';
+        if (data.length === 0) {
+            grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">No reviews yet. Be the first to leave one!</div>';
+            return;
+        }
+
+        data.forEach(review => {
+            const date = new Date(review.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= review.rating) {
+                    starsHtml += '<i data-lucide="star" style="fill: #f59e0b; color: #f59e0b;"></i>';
+                } else {
+                    starsHtml += '<i data-lucide="star" style="color: var(--border-glass);"></i>';
+                }
+            }
+
+            const card = document.createElement('div');
+            card.className = 'review-card glass-card';
+            card.innerHTML = `
+                <div class="review-card-header">
+                    <div class="reviewer-name">${review.name}</div>
+                    <div class="review-date">${date}</div>
+                </div>
+                <div class="review-stars">
+                    ${starsHtml}
+                </div>
+                <div class="review-text">"${review.comment}"</div>
+            `;
+            grid.appendChild(card);
+        });
+
+        lucide.createIcons();
+    } catch (err) {
+        console.error("Error fetching reviews:", err);
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">Failed to load reviews.</div>';
+    }
+}
