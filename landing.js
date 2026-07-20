@@ -947,7 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (reviewForm) {
         reviewForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = "Anonymous Citizen";
+            const name = document.getElementById('reviewer-name').value;
             const rating = parseInt(ratingInput.value);
             const comment = document.getElementById('review-comment').value;
 
