@@ -48,6 +48,11 @@
     width: 32px; height: 32px;
     color: var(--primary);
 }
+.custom-logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}
 .nav-links {
     display: flex;
     align-items: center;
