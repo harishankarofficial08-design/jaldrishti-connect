@@ -224,11 +224,11 @@ const DEFAULT_REPORTS = [
 
 // Load databases or write defaults
 function initDatabase() {
-    if (!localStorage.getItem("jd_locations_v3")) {
-        localStorage.setItem("jd_locations_v3", JSON.stringify(DEFAULT_LOCATIONS));
+    if (!localStorage.getItem("jd_locations_v4")) {
+        localStorage.setItem("jd_locations_v4", JSON.stringify(DEFAULT_LOCATIONS));
     }
     // Force overwrite complaints to always show the latest demo pins
-    localStorage.setItem("jd_complaints_v3", JSON.stringify(DEFAULT_COMPLAINTS));
+    localStorage.setItem("jd_complaints_v4", JSON.stringify(DEFAULT_COMPLAINTS));
     if (!localStorage.getItem("jd_industries")) {
         localStorage.setItem("jd_industries", JSON.stringify(DEFAULT_INDUSTRIES));
     }
@@ -238,8 +238,8 @@ function initDatabase() {
 }
 
 // Get Database items
-const getLocations = () => JSON.parse(localStorage.getItem("jd_locations_v3"));
-const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v3"));
+const getLocations = () => JSON.parse(localStorage.getItem("jd_locations_v4"));
+const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v4"));
 const getIndustries = () => JSON.parse(localStorage.getItem("jd_industries"));
 const getReports = () => JSON.parse(localStorage.getItem("jd_reports"));
 
@@ -1217,7 +1217,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     initDatabase();
     
     // Pull latest data from Supabase to sync local storage on load
-    await pullFromSupabase();
+    // await pullFromSupabase(); // DISABLED: RLS blocks writes, causing cloud to overwrite local changes
     
     // Re-render UI now that data is fetched
     if (document.getElementById('app-workspace') && !document.getElementById('app-workspace').classList.contains('hidden')) {
