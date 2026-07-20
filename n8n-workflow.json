@@ -1,0 +1,71 @@
+{
+  "name": "JalDrishti Connect - Complaint Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "complaint-received",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "webhookId": "9b642e5b-b9d9-48ab-8c9d-d81b47ef1f7e"
+    },
+    {
+      "parameters": {
+        "text": "=New Pollution Report Received!\n\nLocation: {{$json.body.location}}\nType: {{$json.body.type}}\nDescription: {{$json.body.description}}\nReported By: {{$json.body.reporter}}\n\nPlease review immediately."
+      },
+      "name": "Slack (Placeholder)",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [
+        600,
+        200
+      ],
+      "notesInFlow": true,
+      "notes": "Configure with your Slack Token"
+    },
+    {
+      "parameters": {
+        "fromEmail": "alerts@jaldrishti.org",
+        "toEmail": "kspcb_officials@karnataka.gov.in",
+        "subject": "=URGENT: New Pollution Report - {{$json.body.type}}",
+        "text": "=A new pollution report has been submitted.\n\nLocation: {{$json.body.location}}\nLatitude: {{$json.body.lat}}\nLongitude: {{$json.body.lng}}\nType: {{$json.body.type}}\nDescription: {{$json.body.description}}\n\nSystem Log ID: {{$json.body.id}}",
+        "options": {}
+      },
+      "name": "Email (Placeholder)",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [
+        600,
+        400
+      ],
+      "notesInFlow": true,
+      "notes": "Configure with your SMTP credentials"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Slack (Placeholder)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Email (Placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}
