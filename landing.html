@@ -56,42 +56,7 @@
     <div class="hero-bubbles" id="hero-bubbles"></div>
     <div class="hero-content">
 
-        <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" class="hero-logo animated-logo animate-slide-up" style="animation-delay:0s">
-            <defs>
-                <linearGradient id="dropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#38bdf8"/>
-                    <stop offset="100%" stop-color="#0284c7"/>
-                </linearGradient>
-                <linearGradient id="wave1Grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#0f172a"/>
-                    <stop offset="100%" stop-color="#1e3a8a"/>
-                </linearGradient>
-                <linearGradient id="wave2Grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#0ea5e9"/>
-                    <stop offset="100%" stop-color="#22d3ee"/>
-                </linearGradient>
-                <clipPath id="dropClip">
-                    <path d="M100,10 C100,10 180,120 180,170 C180,215 145,250 100,250 C55,250 20,215 20,170 C20,120 100,10 100,10 Z"/>
-                </clipPath>
-            </defs>
-
-            <!-- Main Drop -->
-            <path class="drop-body" d="M100,10 C100,10 180,120 180,170 C180,215 145,250 100,250 C55,250 20,215 20,170 C20,120 100,10 100,10 Z" fill="url(#dropGrad)"/>
-
-            <!-- The Eye -->
-            <g class="eye-group" transform="translate(100, 150)">
-                <path class="eye-white" d="M-50,0 Q0,-35 50,0 Q0,35 -50,0 Z" fill="#ffffff"/>
-                <circle class="eye-iris" cx="0" cy="0" r="18" fill="#1e3a8a"/>
-                <circle class="eye-pupil" cx="6" cy="-6" r="4" fill="#ffffff"/>
-                <circle class="eye-pupil2" cx="10" cy="2" r="1.5" fill="#ffffff"/>
-            </g>
-
-            <!-- Waves -->
-            <g clip-path="url(#dropClip)">
-                <path class="svg-wave svg-wave1" d="M-100,210 Q-50,180 0,210 T100,210 T200,210 T300,210 L300,250 L-100,250 Z" fill="url(#wave1Grad)"/>
-                <path class="svg-wave svg-wave2" d="M-100,225 Q-50,195 0,225 T100,225 T200,225 T300,225 L300,260 L-100,260 Z" fill="url(#wave2Grad)"/>
-            </g>
-        </svg>
+        <img src="assets/logo.png" alt="JalDrishti Connect Logo" class="hero-logo animate-slide-up" style="animation-delay:0s">
         <h1 class="hero-title animate-slide-up" style="animation-delay:0.1s" data-i18n="hero-title">
             Jal<span class="gradient-text">Drishti</span> Connect
         </h1>
