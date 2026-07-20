@@ -999,7 +999,7 @@ async function fetchReviews() {
             .from('reviews')
             .select('*')
             .order('created_at', { ascending: false })
-            .limit(6);
+            .limit(5);
 
         if (error) throw error;
 
