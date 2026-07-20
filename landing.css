@@ -194,7 +194,7 @@
 }
 .hero-badge i { width: 15px; height: 15px; }
 .hero-logo {
-    width: 140px;
+    width: clamp(200px, 45vw, 560px);
     height: auto;
     margin-bottom: 24px;
     display: inline-block;
