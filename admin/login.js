@@ -41,12 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 showToast('Success', 'Redirecting to dashboard...', 'success');
                 setTimeout(() => {
-                    window.location.href = '/admin/dashboard';
+                    window.location.href = 'dashboard.html';
                 }, 800);
             }
         } catch (err) {
             console.error("Login exception:", err);
-            showToast('Error', 'An unexpected error occurred.', 'error');
+            showToast('Error', err.message || 'An unexpected error occurred.', 'error');
             btn.disabled = false;
             btn.innerHTML = '<span>Secure Login</span><i data-lucide="arrow-right"></i>';
             lucide.createIcons();
@@ -55,9 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function checkIfLoggedIn() {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session) {
-        window.location.replace('/admin/dashboard');
+    try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) {
+            window.location.replace('dashboard.html');
+        }
+    } catch (e) {
+        console.error("Session check failed:", e);
     }
 }
 

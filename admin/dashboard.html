@@ -25,9 +25,13 @@
     <!-- Auth Route Guard -->
     <script>
         (async function checkAuth() {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (!session) {
-                window.location.replace('/admin/login');
+            try {
+                const { data: { session } } = await window.supabase.auth.getSession();
+                if (!session) {
+                    window.location.replace('login.html');
+                }
+            } catch(e) {
+                console.error(e);
             }
         })();
     </script>
