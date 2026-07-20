@@ -92,7 +92,7 @@
     left: 3px;
     width: 36px;
     height: 28px;
-    background: #8b5cf6; /* Purple active color */
+    background: var(--primary); /* Match primary theme blue */
     border-radius: 20px;
     transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
