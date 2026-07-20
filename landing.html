@@ -30,10 +30,11 @@
             <span>JalDrishti <strong>Connect</strong></span>
         </div>
         <div class="nav-links" id="nav-links">
-            <a href="#how-it-works" onclick="closeMobileNav()">How It Works</a>
-            <a href="#complaint-form" onclick="closeMobileNav()">Report</a>
-            <a href="#live-map" onclick="closeMobileNav()">Live Map</a>
-            <a href="#tracker" onclick="closeMobileNav()">Track Complaint</a>
+            <a href="#how-it-works" onclick="closeMobileNav()" data-i18n="nav-how">How It Works</a>
+            <a href="#complaint-form" onclick="closeMobileNav()" data-i18n="nav-report">Report</a>
+            <a href="#live-map" onclick="closeMobileNav()" data-i18n="nav-map">Live Map</a>
+            <a href="#tracker" onclick="closeMobileNav()" data-i18n="nav-track">Track Complaint</a>
+            <button class="btn-text lang-toggle-btn" onclick="toggleLanguage()" data-i18n="lang-btn" style="margin-left: 10px; padding: 6px 12px; font-weight: bold; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border-light); cursor: pointer;">ಕನ್ನಡ</button>
         </div>
         <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
             <i data-lucide="menu" id="hamburger-icon"></i>
@@ -85,19 +86,19 @@
                 <path class="svg-wave svg-wave2" d="M-100,225 Q-50,195 0,225 T100,225 T200,225 T300,225 L300,260 L-100,260 Z" fill="url(#wave2Grad)"/>
             </g>
         </svg>
-        <h1 class="hero-title animate-slide-up" style="animation-delay:0.1s">
+        <h1 class="hero-title animate-slide-up" style="animation-delay:0.1s" data-i18n="hero-title">
             Jal<span class="gradient-text">Drishti</span> Connect
         </h1>
-        <p class="hero-tagline animate-slide-up" style="animation-delay:0.1s">Report. Track. Protect.</p>
-        <p class="hero-subheading animate-slide-up" style="animation-delay:0.2s">
+        <p class="hero-tagline animate-slide-up" style="animation-delay:0.1s" data-i18n="hero-tagline">Report. Track. Protect.</p>
+        <p class="hero-subheading animate-slide-up" style="animation-delay:0.2s" data-i18n="hero-sub">
             Report polluted lakes, rivers, drains, borewells, or illegal industrial effluent discharge by simply taking a photo from your mobile phone. Your report reaches the concerned authorities <strong>instantly</strong>.
         </p>
         <div class="hero-cta animate-slide-up" style="animation-delay:0.3s">
-            <a href="#complaint-form" class="btn-hero-primary" id="hero-report-btn">
+            <a href="#complaint-form" class="btn-hero-primary" id="hero-report-btn" data-i18n="hero-btn-report">
                 <i data-lucide="camera"></i>
                 Report Water Pollution
             </a>
-            <a href="#live-map" class="btn-hero-secondary" id="hero-map-btn">
+            <a href="#live-map" class="btn-hero-secondary" id="hero-map-btn" data-i18n="hero-btn-map">
                 <i data-lucide="map"></i>
                 View Pollution Map
             </a>
@@ -105,17 +106,17 @@
         <div class="hero-trust-row animate-fade-in" style="animation-delay:0.5s">
             <div class="trust-item">
                 <span class="trust-num" id="hero-count-reports">14</span>
-                <span class="trust-lbl">Reports Submitted</span>
+                <span class="trust-lbl" data-i18n="stat-reports">Reports Submitted</span>
             </div>
             <div class="trust-divider"></div>
             <div class="trust-item">
                 <span class="trust-num" id="hero-count-areas">4</span>
-                <span class="trust-lbl">Zones Monitored</span>
+                <span class="trust-lbl" data-i18n="stat-zones">Zones Monitored</span>
             </div>
             <div class="trust-divider"></div>
             <div class="trust-item">
                 <span class="trust-num">92%</span>
-                <span class="trust-lbl">Compliance Rate</span>
+                <span class="trust-lbl" data-i18n="stat-compliance">Compliance Rate</span>
             </div>
         </div>
     </div>
@@ -130,34 +131,34 @@
 <section class="section how-it-works" id="how-it-works">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-badge">Simple Process</div>
-            <h2>How It Works</h2>
-            <p>Four simple steps to report water pollution and protect your community.</p>
+            <div class="section-badge" data-i18n="how-badge">Simple Process</div>
+            <h2 data-i18n="how-title">How It Works</h2>
+            <p data-i18n="how-sub">Four simple steps to report water pollution and protect your community.</p>
         </div>
         <div class="steps-grid">
             <div class="step-card glass-card reveal-on-scroll" id="step-card-1">
                 <div class="step-num">1</div>
                 <div class="step-icon-wrap">📷</div>
-                <h3>Take a Photo</h3>
-                <p>Capture the polluted water body, drain, or discharge point using your phone camera.</p>
+                <h3 data-i18n="how-step1-title">Take a Photo</h3>
+                <p data-i18n="how-step1-desc">Capture the polluted water body, drain, or discharge point using your phone camera.</p>
             </div>
             <div class="step-card glass-card reveal-on-scroll" id="step-card-2" style="transition-delay:0.1s">
                 <div class="step-num">2</div>
                 <div class="step-icon-wrap">📍</div>
-                <h3>Choose Location</h3>
-                <p>Allow GPS to auto-detect your location, or enter the address manually.</p>
+                <h3 data-i18n="how-step2-title">Choose Location</h3>
+                <p data-i18n="how-step2-desc">Allow GPS to auto-detect your location, or enter the address manually.</p>
             </div>
             <div class="step-card glass-card reveal-on-scroll" id="step-card-3" style="transition-delay:0.2s">
                 <div class="step-num">3</div>
                 <div class="step-icon-wrap">📝</div>
-                <h3>Describe the Problem</h3>
-                <p>Add a short description — odor, color, approximate scale, and time of occurrence.</p>
+                <h3 data-i18n="how-step3-title">Describe the Problem</h3>
+                <p data-i18n="how-step3-desc">Add a short description — odor, color, approximate scale, and time of occurrence.</p>
             </div>
             <div class="step-card glass-card reveal-on-scroll" id="step-card-4" style="transition-delay:0.3s">
                 <div class="step-num">4</div>
                 <div class="step-icon-wrap">🚀</div>
-                <h3>Submit Report</h3>
-                <p>Complaint is sent to KSPCB and instantly appears on the live dashboard &amp; map.</p>
+                <h3 data-i18n="how-step4-title">Submit Report</h3>
+                <p data-i18n="how-step4-desc">Complaint is sent to KSPCB and instantly appears on the live dashboard &amp; map.</p>
             </div>
         </div>
     </div>
@@ -170,10 +171,10 @@
     <div class="section-container narrow">
         <div class="section-header">
             <div class="section-badge danger-badge">
-                <i data-lucide="alert-triangle"></i> Live Reporting
+                <i data-lucide="alert-triangle"></i> <span data-i18n="form-badge">Live Reporting</span>
             </div>
-            <h2>Report Water Pollution</h2>
-            <p>Your report is sent directly to KSPCB authorities and appears on the community map instantly.</p>
+            <h2 data-i18n="form-title">Report Water Pollution</h2>
+            <p data-i18n="form-sub">Your report is sent directly to KSPCB authorities and appears on the community map instantly.</p>
         </div>
 
         <div class="form-mega-card glass-card reveal-on-scroll" id="form-mega-card">
@@ -185,18 +186,18 @@
                     <div class="success-checkmark" id="success-checkmark">
                         <i data-lucide="check-circle-2"></i>
                     </div>
-                    <h2>Thank You!</h2>
-                    <p>Your complaint has been submitted successfully.</p>
+                    <h2 data-i18n="success-title">Thank You!</h2>
+                    <p data-i18n="success-sub">Your complaint has been submitted successfully.</p>
                     <div class="complaint-id-box">
-                        <span class="complaint-id-label">Complaint ID</span>
+                        <span class="complaint-id-label" data-i18n="success-id-label">Complaint ID</span>
                         <span class="complaint-id-value" id="success-complaint-id">JC-2026-000234</span>
                     </div>
-                    <p class="success-note">Track investigation progress in the Complaint Status Tracker below.</p>
+                    <p class="success-note" data-i18n="success-note">Track investigation progress in the Complaint Status Tracker below.</p>
                     <div class="success-actions">
-                        <button class="btn-primary" onclick="goToTracker()" id="goto-tracker-btn">
+                        <button class="btn-primary" onclick="goToTracker()" id="goto-tracker-btn" data-i18n="success-btn-track">
                             <i data-lucide="search"></i> Track Complaint
                         </button>
-                        <button class="btn-outline" onclick="resetComplaintForm()" id="report-another-btn">
+                        <button class="btn-outline" onclick="resetComplaintForm()" id="report-another-btn" data-i18n="success-btn-another">
                             <i data-lucide="plus-circle"></i> Report Another Issue
                         </button>
                     </div>
@@ -209,7 +210,7 @@
                 <div class="form-section-block">
                     <div class="form-section-title">
                         <i data-lucide="camera"></i>
-                        <span>1. Upload Evidence Photo</span>
+                        <span data-i18n="form-step1">1. Upload Evidence Photo</span>
                     </div>
                     <div class="drop-zone-landing" id="landing-drop-zone"
                          onclick="document.getElementById('citizen-file-input').click()"
@@ -219,25 +220,25 @@
                         <input type="file" id="citizen-file-input" accept="image/jpg,image/jpeg,image/png" class="hidden-input" onchange="handleFileSelect(event)">
                         <div id="drop-default-state">
                             <i data-lucide="upload-cloud" class="drop-icon-lg" id="drop-icon"></i>
-                            <p>Drag &amp; drop your photo here</p>
-                            <small>Or choose an option below</small>
+                            <p data-i18n="drop-text">Drag &amp; drop your photo here</p>
+                            <small data-i18n="drop-sub">Or choose an option below</small>
                             <div class="drop-btn-row">
-                                <button type="button" class="drop-action-btn" onclick="event.stopPropagation(); document.getElementById('citizen-file-input').click()" id="take-photo-btn">
+                                <button type="button" class="drop-action-btn" onclick="event.stopPropagation(); document.getElementById('citizen-file-input').click()" id="take-photo-btn" data-i18n="drop-btn-take">
                                     <i data-lucide="camera"></i> Take Photo
                                 </button>
-                                <button type="button" class="drop-action-btn" onclick="event.stopPropagation(); document.getElementById('citizen-file-input').click()" id="gallery-btn">
+                                <button type="button" class="drop-action-btn" onclick="event.stopPropagation(); document.getElementById('citizen-file-input').click()" id="gallery-btn" data-i18n="drop-btn-gallery">
                                     <i data-lucide="image"></i> Upload from Gallery
                                 </button>
                             </div>
-                            <p class="drop-hint">Accepts JPG, JPEG, PNG &mdash; Max 10 MB</p>
+                            <p class="drop-hint" data-i18n="drop-hint">Accepts JPG, JPEG, PNG &mdash; Max 10 MB</p>
                         </div>
                         <div id="drop-preview-state" class="hidden">
                             <img id="citizen-photo-preview" src="#" alt="Evidence Preview">
                             <div class="drop-preview-actions">
-                                <button type="button" class="drop-action-btn" onclick="event.stopPropagation(); document.getElementById('citizen-file-input').click()" id="retake-btn">
+                                <button type="button" class="drop-action-btn" onclick="event.stopPropagation(); document.getElementById('citizen-file-input').click()" id="retake-btn" data-i18n="drop-retake">
                                     <i data-lucide="refresh-cw"></i> Retake
                                 </button>
-                                <button type="button" class="drop-action-btn danger" onclick="event.stopPropagation(); clearPhoto()" id="remove-photo-btn">
+                                <button type="button" class="drop-action-btn danger" onclick="event.stopPropagation(); clearPhoto()" id="remove-photo-btn" data-i18n="drop-remove">
                                     <i data-lucide="trash-2"></i> Remove
                                 </button>
                             </div>
@@ -249,21 +250,21 @@
                 <div class="form-section-block">
                     <div class="form-section-title">
                         <i data-lucide="alert-octagon"></i>
-                        <span>2. Select Pollution Type</span>
+                        <span data-i18n="form-step2">2. Select Pollution Type</span>
                     </div>
                     <div class="input-group">
                         <select id="citizen-pollution-type" required>
-                            <option value="" disabled selected>— Select type of pollution —</option>
-                            <option value="Illegal Industrial Effluent">Illegal Industrial Effluent</option>
-                            <option value="Foamy Water / Chemical Foam">Foamy Water / Chemical Foam</option>
-                            <option value="Oil Spill">Oil Spill</option>
-                            <option value="Chemical Discharge">Chemical Discharge</option>
-                            <option value="Dead Fish / Aquatic Life">Dead Fish / Aquatic Life</option>
-                            <option value="Garbage Dumping">Garbage Dumping in Water Body</option>
-                            <option value="Drain / Sewage Overflow">Drain / Sewage Overflow</option>
-                            <option value="Bad Odor from Water Body">Bad Odor from Water Body</option>
-                            <option value="Borewell Water Contamination">Borewell Water Contamination</option>
-                            <option value="Other">Other</option>
+                            <option value="" disabled selected data-i18n="form-cat-default">— Select type of pollution —</option>
+                            <option value="Illegal Industrial Effluent" data-i18n="form-cat-1">Illegal Industrial Effluent</option>
+                            <option value="Foamy Water / Chemical Foam" data-i18n="form-cat-2">Foamy Water / Chemical Foam</option>
+                            <option value="Oil Spill" data-i18n="form-cat-3">Oil Spill</option>
+                            <option value="Chemical Discharge" data-i18n="form-cat-4">Chemical Discharge</option>
+                            <option value="Dead Fish / Aquatic Life" data-i18n="form-cat-5">Dead Fish / Aquatic Life</option>
+                            <option value="Garbage Dumping" data-i18n="form-cat-6">Garbage Dumping in Water Body</option>
+                            <option value="Drain / Sewage Overflow" data-i18n="form-cat-7">Drain / Sewage Overflow</option>
+                            <option value="Bad Odor from Water Body" data-i18n="form-cat-8">Bad Odor from Water Body</option>
+                            <option value="Borewell Water Contamination" data-i18n="form-cat-9">Borewell Water Contamination</option>
+                            <option value="Other" data-i18n="form-cat-10">Other</option>
                         </select>
                     </div>
                 </div>
@@ -272,12 +273,12 @@
                 <div class="form-section-block">
                     <div class="form-section-title">
                         <i data-lucide="align-left"></i>
-                        <span>3. Describe the Problem</span>
+                        <span data-i18n="form-step3">3. Describe the Problem</span>
                     </div>
                     <div class="input-group">
                         <textarea id="citizen-description" rows="4" maxlength="300"
                             placeholder="Describe what you observed — color, odor, approximate scale, time of occurrence..."
-                            required oninput="updateCharCount(this)"></textarea>
+                            required oninput="updateCharCount(this)" data-i18n="form-desc-placeholder"></textarea>
                         <div class="char-counter"><span id="char-count">0</span> / 300 characters</div>
                     </div>
                 </div>
@@ -286,20 +287,20 @@
                 <div class="form-section-block">
                     <div class="form-section-title">
                         <i data-lucide="map-pin"></i>
-                        <span>4. Your Location</span>
+                        <span data-i18n="form-step4">4. Your Location</span>
                     </div>
                     <div class="location-toggle">
                         <label class="location-option" id="loc-gps-label">
                             <input type="radio" name="location-type" value="gps" id="loc-gps" onchange="switchLocationMode('gps')" checked>
                             <span class="radio-custom"></span>
                             <i data-lucide="crosshair"></i>
-                            Use Current Location (GPS)
+                            <span data-i18n="loc-gps">Use Current Location (GPS)</span>
                         </label>
                         <label class="location-option" id="loc-manual-label">
                             <input type="radio" name="location-type" value="manual" id="loc-manual" onchange="switchLocationMode('manual')">
                             <span class="radio-custom"></span>
                             <i data-lucide="keyboard"></i>
-                            Enter Address Manually
+                            <span data-i18n="loc-manual">Enter Address Manually</span>
                         </label>
                     </div>
 
@@ -307,7 +308,7 @@
                     <div id="gps-mode" class="location-mode-panel">
                         <button type="button" class="btn-locate" id="gps-btn" onclick="requestGPS()">
                             <i data-lucide="crosshair"></i>
-                            <span>Detect My Location</span>
+                            <span data-i18n="loc-btn-detect">Detect My Location</span>
                         </button>
                         <div class="gps-result hidden" id="gps-result">
                             <div class="gps-row">
@@ -332,7 +333,7 @@
                         </div>
                         <div class="gps-denied hidden" id="gps-denied">
                             <i data-lucide="alert-circle"></i>
-                            <p>Location permission denied. Please enter your address manually.</p>
+                            <p data-i18n="loc-denied">Location permission denied. Please enter your address manually.</p>
                         </div>
                     </div>
 
@@ -340,27 +341,27 @@
                     <div id="manual-mode" class="location-mode-panel hidden">
                         <div class="address-grid">
                             <div class="input-group span-2">
-                                <label for="addr-street">House / Street</label>
+                                <label for="addr-street" data-i18n="addr-street">House / Street</label>
                                 <input type="text" id="addr-street" placeholder="e.g. 12, Industrial Estate Road">
                             </div>
                             <div class="input-group">
-                                <label for="addr-area">Area</label>
+                                <label for="addr-area" data-i18n="addr-area">Area</label>
                                 <input type="text" id="addr-area" placeholder="e.g. Jigani">
                             </div>
                             <div class="input-group">
-                                <label for="addr-city">Village / City</label>
+                                <label for="addr-city" data-i18n="addr-city">Village / City</label>
                                 <input type="text" id="addr-city" placeholder="e.g. Anekal">
                             </div>
                             <div class="input-group">
-                                <label for="addr-district">District</label>
+                                <label for="addr-district" data-i18n="addr-district">District</label>
                                 <input type="text" id="addr-district" placeholder="e.g. Bengaluru Urban">
                             </div>
                             <div class="input-group">
-                                <label for="addr-state">State</label>
+                                <label for="addr-state" data-i18n="addr-state">State</label>
                                 <input type="text" id="addr-state" placeholder="e.g. Karnataka">
                             </div>
                             <div class="input-group">
-                                <label for="addr-pincode">Pincode</label>
+                                <label for="addr-pincode" data-i18n="addr-pin">Pincode</label>
                                 <input type="text" id="addr-pincode" placeholder="e.g. 562106" maxlength="6" pattern="[0-9]{6}">
                             </div>
                         </div>
@@ -371,15 +372,15 @@
                 <div class="form-section-block">
                     <div class="form-section-title">
                         <i data-lucide="clock"></i>
-                        <span>5. Date &amp; Time of Incident</span>
+                        <span data-i18n="form-step5">5. Date &amp; Time of Incident</span>
                     </div>
                     <div class="form-row-2">
                         <div class="input-group">
-                            <label for="incident-date">Date</label>
+                            <label for="incident-date" data-i18n="time-date">Date</label>
                             <input type="text" id="incident-date" readonly class="readonly-input">
                         </div>
                         <div class="input-group">
-                            <label for="incident-time">Time</label>
+                            <label for="incident-time" data-i18n="time-time">Time</label>
                             <input type="text" id="incident-time" readonly class="readonly-input">
                         </div>
                     </div>
@@ -389,27 +390,27 @@
                 <div class="form-section-block">
                     <div class="form-section-title">
                         <i data-lucide="user"></i>
-                        <span>6. Contact Details <em>(Optional)</em></span>
+                        <span data-i18n="form-step6">6. Contact Details <em>(Optional)</em></span>
                     </div>
                     <div class="contact-fields" id="contact-fields">
                         <div class="form-row-3">
                             <div class="input-group">
-                                <label for="contact-name">Your Name</label>
+                                <label for="contact-name" data-i18n="contact-name">Your Name</label>
                                 <input type="text" id="contact-name" placeholder="e.g. Riya Sharma">
                             </div>
                             <div class="input-group">
-                                <label for="contact-phone">Phone Number</label>
+                                <label for="contact-phone" data-i18n="contact-phone">Phone Number</label>
                                 <input type="tel" id="contact-phone" placeholder="9876543210" maxlength="10">
                             </div>
                             <div class="input-group">
-                                <label for="contact-email">Email Address</label>
+                                <label for="contact-email" data-i18n="contact-email">Email Address</label>
                                 <input type="email" id="contact-email" placeholder="riya@example.com">
                             </div>
                         </div>
                         <label class="checkbox-custom-label" id="anon-label">
                             <input type="checkbox" id="anonymous-check" onchange="toggleAnonymous(this)">
                             <span class="checkbox-custom-box"></span>
-                            <span>Submit anonymously — hide my personal information from the public dashboard view</span>
+                            <span data-i18n="contact-anon">Submit anonymously — hide my personal information from the public dashboard view</span>
                         </label>
                     </div>
                 </div>
@@ -419,7 +420,7 @@
                     <label class="checkbox-custom-label consent-label" id="consent-label">
                         <input type="checkbox" id="consent-check" required>
                         <span class="checkbox-custom-box"></span>
-                        <span>I confirm that the uploaded information is true to the best of my knowledge and I consent to KSPCB authorities reviewing this report for regulatory action.</span>
+                        <span data-i18n="form-consent">I confirm that the uploaded information is true to the best of my knowledge and I consent to KSPCB authorities reviewing this report for regulatory action.</span>
                     </label>
                 </div>
 
@@ -427,11 +428,11 @@
                 <button type="submit" class="btn-submit-complaint" id="submit-complaint-btn">
                     <span class="submit-idle" id="submit-idle-state">
                         <i data-lucide="send"></i>
-                        Submit Complaint to KSPCB
+                        <span data-i18n="form-submit">Submit Complaint to KSPCB</span>
                     </span>
                     <span class="submit-loading hidden" id="submit-loading-state">
                         <span class="spinner"></span>
-                        Submitting to KSPCB...
+                        <span data-i18n="form-submitting">Submitting to KSPCB...</span>
                     </span>
                 </button>
             </form>
@@ -445,27 +446,27 @@
 <section class="section map-section" id="live-map">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-badge">Live Data</div>
-            <h2>Live Community Map</h2>
-            <p>Real-time pollution reports across the Jigani–Anekal region. Click any marker for full details.</p>
+            <div class="section-badge" data-i18n="map-badge">Live Data</div>
+            <h2 data-i18n="map-title">Live Community Map</h2>
+            <p data-i18n="map-sub">Real-time pollution reports across the Jigani–Anekal region. Click any marker for full details.</p>
         </div>
         <div class="map-legend">
-            <span class="legend-item"><span class="legend-dot green"></span> Safe / Clean</span>
-            <span class="legend-item"><span class="legend-dot yellow"></span> Under Investigation</span>
-            <span class="legend-item"><span class="legend-dot red"></span> Pollution Reported</span>
+            <span class="legend-item"><span class="legend-dot green"></span> <span data-i18n="map-l1">Safe / Clean</span></span>
+            <span class="legend-item"><span class="legend-dot yellow"></span> <span data-i18n="map-l2">Under Investigation</span></span>
+            <span class="legend-item"><span class="legend-dot red"></span> <span data-i18n="map-l3">Pollution Reported</span></span>
         </div>
         <div class="landing-map-card glass-card reveal-on-scroll" id="landing-map-wrapper">
             <div class="map-layout-split">
                 <div id="landing-leaflet-map" class="map-area"></div>
                 <div id="map-side-panel" class="map-side-panel hidden">
                     <div class="panel-header">
-                        <h3 id="panel-title">Report Details</h3>
+                        <h3 id="panel-title" data-i18n="panel-title">Report Details</h3>
                         <button id="panel-close-btn" class="panel-close" aria-label="Close panel">
                             <i data-lucide="x"></i>
                         </button>
                     </div>
                     <div class="panel-content" id="panel-content">
-                        <div class="panel-placeholder">Select a location or complaint marker on the map to view detailed information.</div>
+                        <div class="panel-placeholder" data-i18n="panel-hint">Select a location or complaint marker on the map to view detailed information.</div>
                     </div>
                 </div>
             </div>
@@ -479,35 +480,35 @@
 <section class="section stats-section" id="live-stats">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-badge">Impact Numbers</div>
-            <h2>Our Collective Impact</h2>
-            <p>Live figures from the JalDrishti database — updated with every citizen report.</p>
+            <div class="section-badge" data-i18n="stat-badge">Impact Numbers</div>
+            <h2 data-i18n="stat-title">Our Collective Impact</h2>
+            <p data-i18n="stat-sub">Live figures from the JalDrishti database — updated with every citizen report.</p>
         </div>
         <div class="stats-grid">
             <div class="stat-card glass-card reveal-on-scroll" id="stat-card-1">
                 <div class="stat-icon text-blue"><i data-lucide="file-text"></i></div>
                 <div class="stat-num" id="stat-reports">0</div>
-                <div class="stat-label">Reports Submitted</div>
+                <div class="stat-label" data-i18n="stat-reports">Reports Submitted</div>
             </div>
             <div class="stat-card glass-card reveal-on-scroll" id="stat-card-2" style="transition-delay:0.1s">
                 <div class="stat-icon text-green"><i data-lucide="shield-check"></i></div>
                 <div class="stat-num" id="stat-verified">0</div>
-                <div class="stat-label">Verified Reports</div>
+                <div class="stat-label" data-i18n="stat-verified">Verified Reports</div>
             </div>
             <div class="stat-card glass-card reveal-on-scroll" id="stat-card-3" style="transition-delay:0.2s">
                 <div class="stat-icon text-blue"><i data-lucide="waves"></i></div>
                 <div class="stat-num" id="stat-water-bodies">0</div>
-                <div class="stat-label">Water Bodies Monitored</div>
+                <div class="stat-label" data-i18n="stat-water">Water Bodies Monitored</div>
             </div>
             <div class="stat-card glass-card reveal-on-scroll" id="stat-card-4" style="transition-delay:0.3s">
                 <div class="stat-icon text-orange"><i data-lucide="users"></i></div>
                 <div class="stat-num" id="stat-authorities">0</div>
-                <div class="stat-label">Authorities Responding</div>
+                <div class="stat-label" data-i18n="stat-auth">Authorities Responding</div>
             </div>
             <div class="stat-card glass-card reveal-on-scroll" id="stat-card-5" style="transition-delay:0.4s">
                 <div class="stat-icon text-red"><i data-lucide="factory"></i></div>
                 <div class="stat-num" id="stat-industries">0</div>
-                <div class="stat-label">Industries Under Investigation</div>
+                <div class="stat-label" data-i18n="stat-ind">Industries Under Investigation</div>
             </div>
         </div>
     </div>
@@ -519,16 +520,16 @@
 <section class="section tracker-section" id="tracker">
     <div class="section-container narrow">
         <div class="section-header">
-            <div class="section-badge">Track Status</div>
-            <h2>Complaint Status Tracker</h2>
-            <p>Enter your Complaint ID to see real-time investigation progress and authority feedback.</p>
+            <div class="section-badge" data-i18n="track-badge">Track Status</div>
+            <h2 data-i18n="track-title">Complaint Status Tracker</h2>
+            <p data-i18n="track-sub">Enter your Complaint ID to see real-time investigation progress and authority feedback.</p>
         </div>
         <div class="tracker-card glass-card reveal-on-scroll" id="tracker-card">
             <div class="tracker-input-row">
                 <div class="input-group" style="flex:1; margin-bottom:0;">
-                    <input type="text" id="tracker-id-input" placeholder="e.g. JC-2026-000234 or JD-90432" style="font-family: monospace; letter-spacing: 0.05em;">
+                    <input type="text" id="tracker-id-input" placeholder="e.g. JC-2026-000234 or JD-90432" style="font-family: monospace; letter-spacing: 0.05em;" data-i18n="track-placeholder">
                 </div>
-                <button class="btn-primary" onclick="lookupComplaint()" id="track-btn">
+                <button class="btn-primary" onclick="lookupComplaint()" id="track-btn" data-i18n="track-btn">
                     <i data-lucide="search"></i> Track
                 </button>
             </div>
@@ -550,7 +551,7 @@
             <!-- Not Found -->
             <div class="tracker-not-found hidden" id="tracker-not-found">
                 <i data-lucide="search-x"></i>
-                <p>No complaint found with that ID. Please double-check and try again.</p>
+                <p data-i18n="track-notfound">No complaint found with that ID. Please double-check and try again.</p>
             </div>
         </div>
     </div>
@@ -562,30 +563,30 @@
 <section class="section why-section" id="why">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-badge">Our Advantage</div>
-            <h2>Why JalDrishti Connect?</h2>
-            <p>Built for the community, powered by technology, backed by KSPCB authorities.</p>
+            <div class="section-badge" data-i18n="why-badge">Our Advantage</div>
+            <h2 data-i18n="why-title">Why JalDrishti Connect?</h2>
+            <p data-i18n="why-sub">Built for the community, powered by technology, backed by KSPCB authorities.</p>
         </div>
         <div class="why-grid">
             <div class="why-card glass-card reveal-on-scroll" id="why-card-1">
                 <div class="why-icon">📱</div>
-                <h3>Easy Mobile Reporting</h3>
-                <p>No app download needed. Report directly from your browser with one tap. Works on any smartphone or tablet.</p>
+                <h3 data-i18n="why-1-title">Easy Mobile Reporting</h3>
+                <p data-i18n="why-1-sub">No app download needed. Report directly from your browser with one tap. Works on any smartphone or tablet.</p>
             </div>
             <div class="why-card glass-card reveal-on-scroll" id="why-card-2" style="transition-delay:0.1s">
                 <div class="why-icon">📍</div>
-                <h3>GPS-Based Location Detection</h3>
-                <p>Automatic GPS detection attaches precise, tamper-proof location data to every report submitted.</p>
+                <h3 data-i18n="why-2-title">GPS-Based Location Detection</h3>
+                <p data-i18n="why-2-sub">Automatic GPS detection attaches precise, tamper-proof location data to every report submitted.</p>
             </div>
             <div class="why-card glass-card reveal-on-scroll" id="why-card-3" style="transition-delay:0.2s">
                 <div class="why-icon">⚡</div>
-                <h3>Real-Time Notifications</h3>
-                <p>Authorities are notified the instant you submit. No delays, no lost reports. Full audit trail maintained.</p>
+                <h3 data-i18n="why-3-title">Real-Time Notifications</h3>
+                <p data-i18n="why-3-sub">Authorities are notified the instant you submit. No delays, no lost reports. Full audit trail maintained.</p>
             </div>
             <div class="why-card glass-card reveal-on-scroll" id="why-card-4" style="transition-delay:0.3s">
                 <div class="why-icon">🤝</div>
-                <h3>Community Participation</h3>
-                <p>Every citizen becomes a water quality guardian. Collective reporting creates measurable, lasting change.</p>
+                <h3 data-i18n="why-4-title">Community Participation</h3>
+                <p data-i18n="why-4-sub">Every citizen becomes a water quality guardian. Collective reporting creates measurable, lasting change.</p>
             </div>
         </div>
     </div>
@@ -598,35 +599,35 @@
     <div class="section-container">
         <div class="section-header">
             <div class="section-badge danger-badge">
-                <i data-lucide="phone-call"></i> Emergency
+                <i data-lucide="phone-call"></i> <span data-i18n="emer-badge">Emergency</span>
             </div>
-            <h2>Emergency Contacts</h2>
-            <p>For urgent water pollution emergencies, contact the concerned authorities directly.</p>
+            <h2 data-i18n="emer-title">Emergency Contacts</h2>
+            <p data-i18n="emer-sub">For urgent water pollution emergencies, contact the concerned authorities directly.</p>
         </div>
         <div class="emergency-grid">
             <a href="tel:18004251517" class="emergency-card glass-card reveal-on-scroll" id="emerg-1">
                 <div class="emergency-icon text-green"><i data-lucide="phone"></i></div>
-                <h3>KSPCB Helpline</h3>
+                <h3 data-i18n="emer-1-title">KSPCB Helpline</h3>
                 <p class="emergency-number">1800-425-1517</p>
-                <small>Toll Free &mdash; 24 / 7</small>
+                <small data-i18n="emer-1-sub">Toll Free &mdash; 24 / 7</small>
             </a>
             <a href="tel:08022943533" class="emergency-card glass-card reveal-on-scroll" id="emerg-2" style="transition-delay:0.1s">
                 <div class="emergency-icon text-blue"><i data-lucide="building-2"></i></div>
-                <h3>Municipal Authority</h3>
+                <h3 data-i18n="emer-2-title">Municipal Authority</h3>
                 <p class="emergency-number">080-22943533</p>
-                <small>BBMP Environment Cell</small>
+                <small data-i18n="emer-2-sub">BBMP Environment Cell</small>
             </a>
             <a href="tel:1916" class="emergency-card glass-card reveal-on-scroll" id="emerg-3" style="transition-delay:0.2s">
                 <div class="emergency-icon text-red"><i data-lucide="alert-circle"></i></div>
-                <h3>Water Emergency</h3>
+                <h3 data-i18n="emer-3-title">Water Emergency</h3>
                 <p class="emergency-number">1916</p>
-                <small>BWSSB Emergency Line</small>
+                <small data-i18n="emer-3-sub">BWSSB Emergency Line</small>
             </a>
             <a href="mailto:kspcb@karnataka.gov.in" class="emergency-card glass-card reveal-on-scroll" id="emerg-4" style="transition-delay:0.3s">
                 <div class="emergency-icon text-orange"><i data-lucide="mail"></i></div>
-                <h3>Email Support</h3>
+                <h3 data-i18n="emer-4-title">Email Support</h3>
                 <p class="emergency-number">kspcb@karnataka.gov.in</p>
-                <small>Response within 24 hours</small>
+                <small data-i18n="emer-4-sub">Response within 24 hours</small>
             </a>
         </div>
     </div>
@@ -638,22 +639,22 @@
 <section class="reviews-section" id="reviews">
     <div class="reviews-container">
         <div class="reviews-header">
-            <h2>Citizen <span class="highlight">Reviews</span></h2>
-            <p>See what others are saying about JalDrishti Connect or leave your own feedback.</p>
+            <h2 data-i18n="rev-title">Citizen <span class="highlight">Reviews</span></h2>
+            <p data-i18n="rev-sub">See what others are saying about JalDrishti Connect or leave your own feedback.</p>
         </div>
         
         <div class="reviews-content">
             <!-- Submit Review Form -->
             <div class="review-form-card glass-card">
-                <h3>Leave a Review</h3>
+                <h3 data-i18n="rev-form-title">Leave a Review</h3>
                 <form id="review-form">
                     <div class="form-group">
-                        <label for="reviewer-name">Your Name</label>
+                        <label for="reviewer-name" data-i18n="rev-name">Your Name</label>
                         <input type="text" id="reviewer-name" placeholder="" required>
                     </div>
                     
                     <div class="form-group">
-                        <label>Rating</label>
+                        <label data-i18n="rev-rating">Rating</label>
                         <div class="star-rating" id="star-rating">
                             <i data-lucide="star" data-rating="1"></i>
                             <i data-lucide="star" data-rating="2"></i>
@@ -665,13 +666,13 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="review-comment">Comment</label>
+                        <label for="review-comment" data-i18n="rev-comment">Comment</label>
                         <textarea id="review-comment" rows="4" placeholder="Tell us about your experience..." required></textarea>
                     </div>
                     
                     <button type="submit" class="btn-primary" id="submit-review-btn">
                         <i data-lucide="send"></i>
-                        <span>Submit Review</span>
+                        <span data-i18n="rev-submit">Submit Review</span>
                     </button>
                 </form>
             </div>
@@ -680,7 +681,7 @@
             <div class="reviews-grid" id="reviews-grid">
                 <!-- Reviews injected by JS -->
                 <div class="loading-reviews" id="reviews-loader">
-                    <i data-lucide="loader-2" class="spin"></i> Loading latest reviews...
+                    <i data-lucide="loader-2" class="spin"></i> <span data-i18n="rev-loading">Loading latest reviews...</span>
                 </div>
             </div>
         </div>
@@ -697,7 +698,7 @@
                 <img src="assets/logo.png" class="custom-logo" alt="Logo">
                 <span>JalDrishti Connect</span>
             </div>
-            <p>Empowering citizens to report, track, and protect water quality across Karnataka. Aligned with the United Nations SDG 6 — Clean Water &amp; Sanitation.</p>
+            <p data-i18n="footer-desc">Empowering citizens to report, track, and protect water quality across Karnataka. Aligned with the United Nations SDG 6 — Clean Water &amp; Sanitation.</p>
             <div class="footer-social">
                 <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
                 <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
@@ -705,29 +706,29 @@
             </div>
         </div>
         <div class="footer-links-col">
-            <h4>Platform</h4>
-            <a href="#complaint-form">Report Pollution</a>
-            <a href="#live-map">Live Map</a>
-            <a href="#tracker">Track Complaint</a>
-            <a href="#live-stats">Statistics</a>
+            <h4 data-i18n="f-platform">Platform</h4>
+            <a href="#complaint-form" data-i18n="nav-report">Report Pollution</a>
+            <a href="#live-map" data-i18n="nav-map">Live Map</a>
+            <a href="#tracker" data-i18n="nav-track">Track Complaint</a>
+            <a href="#live-stats" data-i18n="f-stats">Statistics</a>
         </div>
         <div class="footer-links-col">
-            <h4>About</h4>
-            <a href="#">About SDG 6</a>
-            <a href="#">KSPCB Partnership</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
+            <h4 data-i18n="f-about">About</h4>
+            <a href="#" data-i18n="f-sdg">About SDG 6</a>
+            <a href="#" data-i18n="f-kspcb">KSPCB Partnership</a>
+            <a href="#" data-i18n="f-privacy">Privacy Policy</a>
+            <a href="#" data-i18n="f-terms">Terms of Use</a>
         </div>
         <div class="footer-links-col">
-            <h4>Contact</h4>
+            <h4 data-i18n="f-contact">Contact</h4>
             <a href="tel:18004251517">KSPCB: 1800-425-1517</a>
-            <a href="tel:1916">Water Emergency: 1916</a>
-            <a href="tel:08022943533">Municipal: 080-22943533</a>
-            <a href="mailto:kspcb@karnataka.gov.in">Email KSPCB</a>
+            <a href="tel:1916" data-i18n="emer-3-title">Water Emergency: 1916</a>
+            <a href="tel:08022943533" data-i18n="emer-2-title">Municipal: 080-22943533</a>
+            <a href="mailto:kspcb@karnataka.gov.in" data-i18n="f-email">Email KSPCB</a>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2026 JalDrishti Connect &mdash; Built for SDG 6: Clean Water &amp; Sanitation &mdash; Powered by Citizens</p>
+        <p data-i18n="footer-copy">&copy; 2026 JalDrishti Connect &mdash; Built for SDG 6: Clean Water &amp; Sanitation &mdash; Powered by Citizens</p>
     </div>
 </footer>
 
@@ -745,13 +746,13 @@
         <div class="welcome-icon-ring">
             <i data-lucide="alert-triangle" class="text-orange"></i>
         </div>
-        <h2>Notice Pollution?</h2>
-        <p>Help us keep JalDrishti clean. If you see contaminated water, chemical foam, or illegal dumping, report it instantly.</p>
+        <h2 data-i18n="modal-title">Notice Pollution?</h2>
+        <p data-i18n="modal-sub">Help us keep JalDrishti clean. If you see contaminated water, chemical foam, or illegal dumping, report it instantly.</p>
         <div class="welcome-actions">
-            <button class="btn-primary w-full" onclick="closeWelcomePopup(); document.getElementById('hero-report-btn').click();">
+            <button class="btn-primary w-full" onclick="closeWelcomePopup(); document.getElementById('hero-report-btn').click();" data-i18n="modal-btn">
                 <i data-lucide="camera"></i> Report an Incident Now
             </button>
-            <button class="btn-text mt-2" style="margin: 8px auto 0 auto; display: block; font-size: 0.9rem; padding: 6px 12px; color: var(--text-muted); border: none; background: transparent; cursor: pointer; text-decoration: underline;" onclick="closeWelcomePopup()">
+            <button class="btn-text mt-2" style="margin: 8px auto 0 auto; display: block; font-size: 0.9rem; padding: 6px 12px; color: var(--text-muted); border: none; background: transparent; cursor: pointer; text-decoration: underline;" onclick="closeWelcomePopup()" data-i18n="modal-later">
                 Maybe Later
             </button>
         </div>
@@ -761,9 +762,8 @@
 <!-- Load Supabase First -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-client.js"></script>
+<script src="translations.js"></script>
 
-<script src="landing-v2.js?v=3"></script>
+<script src="landing-v2.js?v=4"></script>
 </body>
 </html>
-
-
