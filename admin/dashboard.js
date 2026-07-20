@@ -338,7 +338,7 @@ function initDatabase() {
         localStorage.setItem("jd_locations", JSON.stringify(DEFAULT_LOCATIONS));
     }
     // Force overwrite complaints to always show the latest demo pins
-    localStorage.setItem("jd_complaints", JSON.stringify(DEFAULT_COMPLAINTS));
+    localStorage.setItem("jd_complaints_v2", JSON.stringify(DEFAULT_COMPLAINTS));
     if (!localStorage.getItem("jd_industries")) {
         localStorage.setItem("jd_industries", JSON.stringify(DEFAULT_INDUSTRIES));
     }
@@ -349,7 +349,7 @@ function initDatabase() {
 
 // Get Database items
 const getLocations = () => JSON.parse(localStorage.getItem("jd_locations"));
-const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints"));
+const getComplaints = () => JSON.parse(localStorage.getItem("jd_complaints_v2"));
 const getIndustries = () => JSON.parse(localStorage.getItem("jd_industries"));
 const getReports = () => JSON.parse(localStorage.getItem("jd_reports"));
 
