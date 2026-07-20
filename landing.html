@@ -252,8 +252,19 @@
                         <i data-lucide="map-pin"></i>
                         <span>4. Your Location</span>
                     </div>
-                    <div class="location-toggle" style="display: none;">
-                        <input type="radio" name="location-type" value="gps" id="loc-gps" checked>
+                    <div class="location-toggle">
+                        <label class="location-option" id="loc-gps-label">
+                            <input type="radio" name="location-type" value="gps" id="loc-gps" onchange="switchLocationMode('gps')" checked>
+                            <span class="radio-custom"></span>
+                            <i data-lucide="crosshair"></i>
+                            Use Current Location (GPS)
+                        </label>
+                        <label class="location-option" id="loc-manual-label">
+                            <input type="radio" name="location-type" value="manual" id="loc-manual" onchange="switchLocationMode('manual')">
+                            <span class="radio-custom"></span>
+                            <i data-lucide="keyboard"></i>
+                            Enter Address Manually
+                        </label>
                     </div>
 
                     <!-- GPS Mode -->
@@ -285,11 +296,39 @@
                         </div>
                         <div class="gps-denied hidden" id="gps-denied">
                             <i data-lucide="alert-circle"></i>
-                            <p>Location permission denied. Please enable GPS permissions in your browser to report an incident.</p>
+                            <p>Location permission denied. Please enter your address manually.</p>
                         </div>
                     </div>
 
-
+                    <!-- Manual Mode -->
+                    <div id="manual-mode" class="location-mode-panel hidden">
+                        <div class="address-grid">
+                            <div class="input-group span-2">
+                                <label for="addr-street">House / Street</label>
+                                <input type="text" id="addr-street" placeholder="e.g. 12, Industrial Estate Road">
+                            </div>
+                            <div class="input-group">
+                                <label for="addr-area">Area</label>
+                                <input type="text" id="addr-area" placeholder="e.g. Jigani">
+                            </div>
+                            <div class="input-group">
+                                <label for="addr-city">Village / City</label>
+                                <input type="text" id="addr-city" placeholder="e.g. Anekal">
+                            </div>
+                            <div class="input-group">
+                                <label for="addr-district">District</label>
+                                <input type="text" id="addr-district" placeholder="e.g. Bengaluru Urban">
+                            </div>
+                            <div class="input-group">
+                                <label for="addr-state">State</label>
+                                <input type="text" id="addr-state" placeholder="e.g. Karnataka">
+                            </div>
+                            <div class="input-group">
+                                <label for="addr-pincode">Pincode</label>
+                                <input type="text" id="addr-pincode" placeholder="e.g. 562106" maxlength="6" pattern="[0-9]{6}">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- FIELD 5: Date & Time -->
