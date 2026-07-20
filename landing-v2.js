@@ -349,22 +349,6 @@ function updateCharCount(el) {
 
 
 // ====================================================
-// LOCATION MODE SWITCHER
-// ====================================================
-function switchLocationMode(mode) {
-    const gpsPanel    = document.getElementById('gps-mode');
-    const manualPanel = document.getElementById('manual-mode');
-    if (mode === 'gps') {
-        gpsPanel.classList.remove('hidden');
-        manualPanel.classList.add('hidden');
-    } else {
-        gpsPanel.classList.add('hidden');
-        manualPanel.classList.remove('hidden');
-    }
-}
-
-
-// ====================================================
 // GPS DETECTION
 // ====================================================
 function requestGPS() {
@@ -491,28 +475,15 @@ function submitCitizenComplaint(e) {
     }
 
     // Get location
-    const locType = document.querySelector('input[name="location-type"]:checked').value;
     let locationName, lat, lng;
 
-    if (locType === 'gps' && gpsCoords) {
+    if (gpsCoords) {
         lat = gpsCoords.lat;
         lng = gpsCoords.lng;
         locationName = document.getElementById('gps-area').textContent || 'GPS Location';
-    } else if (locType === 'manual') {
-        const area     = document.getElementById('addr-area').value.trim();
-        const city     = document.getElementById('addr-city').value.trim();
-        const district = document.getElementById('addr-district').value.trim();
-        locationName = [area, city, district].filter(Boolean).join(', ') || 'Manual Address Provided';
-        // Use Jigani-Anekal center as fallback for map placement
-        lat = 12.78 + (Math.random() - 0.5) * 0.08;
-        lng = 77.66 + (Math.random() - 0.5) * 0.08;
-    } else if (locType === 'gps' && !gpsCoords) {
-        showToast('Location Required', 'Please detect your GPS location or switch to manual entry.', 'error');
-        return;
     } else {
-        // Fallback
-        lat = 12.7800; lng = 77.6500;
-        locationName = 'Jigani-Anekal Region';
+        showToast('Location Required', 'Please detect your GPS location to submit a report.', 'error');
+        return;
     }
 
     // Contact info
@@ -611,7 +582,7 @@ function resetComplaintForm() {
         btn.classList.remove('loading');
     }
     document.getElementById('char-count').textContent = '0';
-    switchLocationMode('gps');
+    gpsCoords = null;
     document.getElementById('loc-gps').checked = true;
     setDateTime();
     // Restore contact fields if anonymous was checked
