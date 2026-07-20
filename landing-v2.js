@@ -618,7 +618,7 @@ function toggleVoiceRecording() {
     if (isRecording) {
         if (recognition) recognition.stop();
         isRecording = false;
-        btnText.textContent = 'Voice Record (Optional)';
+        btnText.textContent = 'Voice Record';
         icon.setAttribute('data-lucide', 'mic');
         status.classList.add('hidden');
         lucide.createIcons();
