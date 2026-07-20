@@ -744,6 +744,167 @@ p.subtitle {
     display: grid;
 }
 
+/* ============================================================
+   ADMIN LOGIN PAGE
+   ============================================================ */
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.login-wrapper {
+    width: 100%;
+    max-width: 440px;
+    z-index: 10;
+    position: relative;
+}
+.login-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 24px;
+    transition: color 0.2s;
+}
+.login-back-link i { width: 16px; height: 16px; }
+.login-back-link:hover { color: var(--primary); }
+
+.login-card {
+    padding: 40px;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+}
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.login-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: var(--primary);
+}
+.login-icon-wrapper i { width: 28px; height: 28px; }
+.login-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+.login-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+.login-form .input-group {
+    margin-bottom: 20px;
+}
+.input-with-icon {
+    position: relative;
+}
+.input-with-icon i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    width: 18px; height: 18px;
+}
+.input-with-icon input {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    background: rgba(2, 6, 23, 0.5);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.2s;
+}
+.input-with-icon input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(2, 6, 23, 0.8);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+.pwd-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+}
+.pwd-toggle:hover { color: var(--text-main); }
+.pwd-toggle i { position: static; transform: none; left: auto; top: auto; }
+
+.login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    font-size: 0.88rem;
+}
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+.forgot-pwd {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.forgot-pwd:hover { color: var(--primary-hover); }
+
+.login-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
+    font-size: 1rem;
+}
+.login-btn .spin {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.login-footer {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.login-footer p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+@media (max-width: 480px) {
+    .login-card { padding: 30px 20px; }
+}
+
 /* File Drop Zone styling */
 .drop-zone {
     border: 2px dashed rgba(255, 255, 255, 0.15);

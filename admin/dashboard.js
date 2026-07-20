@@ -391,10 +391,13 @@ function applySidebarPermissions() {
     // Admin role retains full access
 }
 
-function logout() {
+async function performLogout() {
+    await supabase.auth.signOut();
     document.getElementById('app-workspace').classList.add('hidden');
-    document.getElementById('splash-screen').classList.remove('hidden');
     showToast("Session Terminated", "Logged out securely.", "info");
+    setTimeout(() => {
+        window.location.href = '../landing.html';
+    }, 800);
 }
 
 

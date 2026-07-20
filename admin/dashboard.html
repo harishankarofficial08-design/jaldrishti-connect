@@ -16,7 +16,21 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
+    
+    <!-- Supabase JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-client.js"></script>
+    
+    <!-- Auth Route Guard -->
+    <script>
+        (async function checkAuth() {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) {
+                window.location.replace('/admin/login');
+            }
+        })();
+    </script>
 </head>
 <body>
     <!-- Toast notifications -->
@@ -153,12 +167,12 @@
 
             <div class="sidebar-footer">
                 <!-- Citizen Portal Link -->
-                <a href="landing.html" class="citizen-portal-btn" id="citizen-portal-link" target="_blank">
+                <a href="../landing.html" class="citizen-portal-btn" id="citizen-portal-link" target="_blank">
                     <i data-lucide="globe"></i>
                     <span>Citizen Portal</span>
                     <span class="portal-new-badge hidden" id="portal-new-badge">NEW</span>
                 </a>
-                <button class="btn-logout" onclick="logout()">
+                <button class="btn-logout" onclick="performLogout()">
                     <i data-lucide="log-out"></i>
                     <span>Logout</span>
                 </button>
@@ -182,7 +196,7 @@
                         <i data-lucide="bell"></i>
                         <span class="notif-count hidden" id="notif-count">0</span>
                     </button>
-                    <a href="landing.html" target="_blank" class="header-portal-link" id="header-portal-link">
+                    <a href="../landing.html" target="_blank" class="header-portal-link" id="header-portal-link">
                         <i data-lucide="external-link"></i>
                         <span>Citizen Portal</span>
                     </a>
@@ -643,11 +657,7 @@
         </div>
     </div>
 
-    <!-- Supabase JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-client.js"></script>
-    
     <!-- App JavaScript -->
-    <script src="app.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>
