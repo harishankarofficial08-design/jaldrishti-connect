@@ -745,7 +745,7 @@ function renderLandingMapMarkers() {
         if (c.status === 'Resolved') return;
         const statusColor = c.status === 'Investigating' ? '#f97316' : '#ef4444';
         const icon = L.divIcon({
-            html: `<div style="width:14px;height:14px;clip-path:polygon(50% 0%,100% 100%,0% 100%);background:${statusColor};box-shadow:0 0 12px ${statusColor};animation:none;"></div>`,
+            html: `<div style="width:14px;height:14px;border-radius:50%;background:${statusColor};border:2px solid #fff;box-shadow:0 0 10px ${statusColor},0 0 20px ${statusColor}44;animation:none;"></div>`,
             className: '', iconSize: [14, 14], iconAnchor: [7, 7]
         });
         const m = L.marker([c.lat, c.lng], { icon }).addTo(landingMap);
