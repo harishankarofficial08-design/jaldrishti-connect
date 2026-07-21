@@ -139,7 +139,7 @@ const translations = {
         "f-email": "Email KSPCB",
         "footer-copy": "© 2026 JalDrishti Connect — Built for SDG 6: Clean Water & Sanitation — Powered by Citizens",
         "modal-title": "Notice Pollution?",
-        "modal-sub": "Help us keep JalDrishti clean. If you see contaminated water, chemical foam, or illegal dumping, report it instantly.",
+        "modal-sub": "Be the eyes for clean water. Capture polluted water bodies, upload the location, and report it instantly.",
         "modal-btn": "Report an Incident Now",
         "modal-later": "Maybe Later",
         "lang-btn": "ಕನ್ನಡ"
