@@ -160,8 +160,13 @@
                     <h2 data-i18n="success-title">Thank You!</h2>
                     <p data-i18n="success-sub">Your complaint has been submitted successfully.</p>
                     <div class="complaint-id-box">
-                        <span class="complaint-id-label" data-i18n="success-id-label">Complaint ID</span>
-                        <span class="complaint-id-value" id="success-complaint-id">JC-2026-000234</span>
+                        <span class="complaint-id-label" data-i18n="success-id-label">COMPLAINT ID</span>
+                        <div style="display:flex; align-items:center; justify-content:center; gap:12px;">
+                            <span class="complaint-id-value" id="success-complaint-id">JC-2026-000234</span>
+                            <button class="copy-id-btn" onclick="copyComplaintId()" title="Copy ID">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
                     </div>
                     <p class="success-note" data-i18n="success-note">Track investigation progress in the Complaint Status Tracker below.</p>
                     <div class="success-actions">

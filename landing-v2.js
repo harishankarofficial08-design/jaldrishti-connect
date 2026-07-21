@@ -1235,3 +1235,14 @@ function closeWelcomePopup() {
 
 
 
+
+
+/* Copy Complaint ID */
+function copyComplaintId() {
+    const id = document.getElementById('success-complaint-id').textContent;
+    navigator.clipboard.writeText(id).then(() => {
+        showToast('Copied!', 'Complaint ID copied to clipboard.', 'success');
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
