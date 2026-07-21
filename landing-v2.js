@@ -844,7 +844,10 @@ function renderLandingMapMarkers() {
             html: `<div style="width:14px;height:14px;border-radius:50%;background:${statusColor};border:2px solid #fff;box-shadow:0 0 10px ${statusColor},0 0 20px ${statusColor}44;animation:none;"></div>`,
             className: '', iconSize: [14, 14], iconAnchor: [7, 7]
         });
-        const m = L.marker([c.lat, c.lng], { icon }).addTo(landingMap);
+        // Add a tiny random jitter (approx 20-30 meters) to prevent exact coordinates from perfectly overlapping and hiding new pins
+        const jitterLat = c.lat + (Math.random() - 0.5) * 0.0003;
+        const jitterLng = c.lng + (Math.random() - 0.5) * 0.0003;
+        const m = L.marker([jitterLat, jitterLng], { icon }).addTo(landingMap);
         const dateStr = new Date(c.dateTime).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
         const popupHtml = `
             <div style="font-family:'Outfit',sans-serif;padding:4px;">
