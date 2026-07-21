@@ -27,26 +27,33 @@ export default async function handler(req, res) {
     console.log(`Received new complaint: ${data.id}`);
 
     try {
+        // Send emails concurrently to avoid Vercel timeouts
+        const emailPromises = [];
+
         // 1. Send Email to Admin
         const voiceText = data.voiceScript ? `\n\n--- Voice Recording Script ---\n${data.voiceScript}\n------------------------------` : '';
-        await transporter.sendMail({
-            from: 'JalDrishti Alerts <harishankarofficial08@gmail.com>',
-            to: 'harishankarofficial08@gmail.com',
-            subject: `URGENT: New Pollution Report - ${data.category}`,
-            text: `A new pollution report has been submitted.\n\nLocation: ${data.location}\nType: ${data.category}\nDescription: ${data.description}${voiceText}\n\nReporter: ${data.user}\n\nSystem Log ID: ${data.id}`
-        });
-        console.log('✅ Admin email sent.');
+        emailPromises.push(
+            transporter.sendMail({
+                from: '"JalDrishti Alerts" <harishankarofficial08@gmail.com>',
+                to: 'harishankarofficial08@gmail.com',
+                subject: `URGENT: New Pollution Report - ${data.category}`,
+                text: `A new pollution report has been submitted.\n\nLocation: ${data.location}\nType: ${data.category}\nDescription: ${data.description}${voiceText}\n\nReporter: ${data.user}\nReporter Email: ${data.email || 'N/A'}\n\nSystem Log ID: ${data.id}`
+            }).then(() => console.log('✅ Admin email sent.'))
+        );
 
         // 2. Send Email to Reporter (if they provided an email)
         if (data.email) {
-            await transporter.sendMail({
-                from: 'JalDrishti Team <harishankarofficial08@gmail.com>',
-                to: data.email,
-                subject: `Complaint Received: ${data.id}`,
-                text: `Dear ${data.user},\n\nThank you for taking the time to report water pollution in your area. Your report has been successfully logged on JalDrishti Connect and forwarded to the KSPCB authorities.\n\nComplaint Details:\nLocation: ${data.location}\nType: ${data.category}\n\nYou can track the status of your complaint on our website using the ID: ${data.id}.\n\nThank you for protecting our waters,\nJalDrishti Team`
-            });
-            console.log(`✅ Reporter email sent to ${data.email}.`);
+            emailPromises.push(
+                transporter.sendMail({
+                    from: '"JalDrishti Team" <harishankarofficial08@gmail.com>',
+                    to: data.email,
+                    subject: `Complaint Received: ${data.id}`,
+                    text: `Dear ${data.user},\n\nThank you for taking the time to report water pollution in your area. Your report has been successfully logged on JalDrishti Connect and forwarded to the KSPCB authorities.\n\nComplaint Details:\nLocation: ${data.location}\nType: ${data.category}\n\nYou can track the status of your complaint on our website using the ID: ${data.id}.\n\nThank you for protecting our waters,\nJalDrishti Team`
+                }).then(() => console.log(`✅ Reporter email sent to ${data.email}.`))
+            );
         }
+
+        await Promise.all(emailPromises);
 
         return res.status(200).json({ message: 'Emails sent successfully' });
     } catch (error) {
