@@ -43,13 +43,15 @@ export default async function handler(req, res) {
 
         // 2. Send Email to Reporter (if they provided an email)
         if (data.email) {
+            console.log(`Preparing to send Reporter email to: ${data.email}`);
             emailPromises.push(
                 transporter.sendMail({
                     from: '"JalDrishti Team" <harishankarofficial08@gmail.com>',
+                    replyTo: 'noreply-jaldrishti@gmail.com', // Helps prevent Gmail from threading/flagging
                     to: data.email,
                     subject: `Complaint Received: ${data.id}`,
                     text: `Dear ${data.user},\n\nThank you for taking the time to report water pollution in your area. Your report has been successfully logged on JalDrishti Connect and forwarded to the KSPCB authorities.\n\nComplaint Details:\nLocation: ${data.location}\nType: ${data.category}\n\nYou can track the status of your complaint on our website using the ID: ${data.id}.\n\nThank you for protecting our waters,\nJalDrishti Team`
-                }).then(() => console.log(`✅ Reporter email sent to ${data.email}.`))
+                }).then(() => console.log(`✅ Reporter email successfully dispatched to ${data.email}.`))
             );
         }
 
