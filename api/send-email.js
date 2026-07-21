@@ -1,12 +1,5 @@
-const express = require('express');
 const nodemailer = require('nodemailer');
-const cors = require('cors');
 
-const app = express();
-app.use(express.json({ limit: '50mb' }));
-app.use(cors()); // Allow cross-origin requests from the frontend
-
-// Configure Nodemailer with your provided credentials
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -15,12 +8,26 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.post('/webhook/complaint-received', async (req, res) => {
+export default async function handler(req, res) {
+    // Enable CORS for Vercel functions (if needed)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
+    if (req.method !== 'POST') {
+        return res.status(405).json({ message: 'Method Not Allowed' });
+    }
+
     const data = req.body;
     console.log(`Received new complaint: ${data.id}`);
 
     try {
-        // 1. Send Email to Admin (You)
+        // 1. Send Email to Admin
         const voiceText = data.voiceScript ? `\n\n--- Voice Recording Script ---\n${data.voiceScript}\n------------------------------` : '';
         await transporter.sendMail({
             from: 'JalDrishti Alerts <harishankarofficial08@gmail.com>',
@@ -39,21 +46,11 @@ app.post('/webhook/complaint-received', async (req, res) => {
                 text: `Dear ${data.user},\n\nThank you for taking the time to report water pollution in your area. Your report has been successfully logged on JalDrishti Connect and forwarded to the KSPCB authorities.\n\nComplaint Details:\nLocation: ${data.location}\nType: ${data.category}\n\nYou can track the status of your complaint on our website using the ID: ${data.id}.\n\nThank you for protecting our waters,\nJalDrishti Team`
             });
             console.log(`✅ Reporter email sent to ${data.email}.`);
-        } else {
-            console.log('⚠️ Reporter did not provide an email address.');
         }
 
-        res.status(200).send('Emails sent successfully');
+        return res.status(200).json({ message: 'Emails sent successfully' });
     } catch (error) {
         console.error('❌ Error sending emails:', error);
-        res.status(500).send('Error sending emails');
+        return res.status(500).json({ message: 'Error sending emails', error: error.message });
     }
-});
-
-const PORT = 3001;
-app.listen(PORT, () => {
-    console.log(`========================================================`);
-    console.log(`JalDrishti Email Automation Server is RUNNING on port ${PORT}`);
-    console.log(`========================================================`);
-    console.log(`Listening for incoming complaints...`);
-});
+}

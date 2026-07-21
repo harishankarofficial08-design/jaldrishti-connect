@@ -591,7 +591,7 @@ function submitCitizenComplaint(e) {
         document.getElementById('submit-loading-state').classList.add('hidden');
 
         // Trigger Node.js Email Server Webhook
-        fetch('http://localhost:3001/webhook/complaint-received', {
+        fetch('/api/send-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newComplaint)
